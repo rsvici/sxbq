@@ -1,0 +1,19 @@
+<view class="sharebox">
+    <image class="img1" src="http://h5.beerqi.com/imgs/beerqiBoxs/share1.jpg" alt="" mode="widthFix"></image>
+    <view class="content">
+        <view class="share" wx:if="{{isShare}}">
+            <button open-type="share"></button>
+            <text>分享好友</text>
+        </view>
+        <view class="draw" wx:if="{{!isShare}}">
+            <input class="tel_input" name="rName" placeholder="请输入手机号" placeholder-class="tel_place" type="number" maxlength="11" bindinput="telInput"></input>
+            <view  wx:if="{{!isDraw}}">免费领取</view> 
+            <view bindtap="freeDraw" class="freeDraw2" wx:if="{{isDraw}}">免费领取</view> 
+        </view>
+    </view>
+     <image class="img1" src="http://h5.beerqi.com/imgs/updata/0705/share2.jpg" alt="" mode="widthFix"></image>
+    <image class="img1" src="http://h5.beerqi.com/imgs/updata/0705/share3.jpg" alt="" mode="widthFix"></image>
+    <image class="img1" src="http://h5.beerqi.com/imgs/updata/0705/share4.jpg" alt="" mode="widthFix"></image>
+    <image class="img1" src="http://h5.beerqi.com/imgs/updata/0705/share5.jpg" alt="" mode="widthFix"></image>
+    <image class="img1" src="http://h5.beerqi.com/imgs/updata/0705/share6.jpg" alt="" mode="widthFix"></image>
+</view>

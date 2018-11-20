@@ -1,0 +1,38 @@
+<view class="comment">
+    <view class="first">
+        <view class="c_f_left">
+            <image  src="{{goodsImg}}"  mode="widthFix"/>
+        </view>
+        <view class="c_f_right">
+            <view class="{{comScore==1?'active':''}}" bindtap="choiceScore"  data-comScore="1">
+                <image  src="http://h5.beerqi.com/imgs/comment/{{imgUrl[0]}}.png"  mode="widthFix"/>
+                <text>好评</text>
+            </view>
+            <view class="{{comScore==2?'active':''}}" bindtap="choiceScore"  data-comScore="2">
+                <image  src="http://h5.beerqi.com/imgs/comment/{{imgUrl[1]}}.png"  mode="widthFix"/>
+                <text>中评</text>
+            </view>
+            <view class="{{comScore==3?'active':''}}" bindtap="choiceScore"  data-comScore="3">
+                <image  src="http://h5.beerqi.com/imgs/comment/{{imgUrl[2]}}.png"  mode="widthFix"/>
+                <text>差评</text>
+            </view>
+        </view>
+    </view>
+
+    <!-- //输入框 -->
+    <view class="section">
+        <textarea placeholder="收到啤酒满意吗？说说它的优点和美中不足的地方吧。" placeholder-style="color:#a0a0a0;"  auto-height bindinput="bindTextAreaBlur"/>
+    </view>
+
+    <!-- 添加图片 -->
+    <view class="addimg">
+        <canvas canvas-id="myCanvas"  bindtap="addImg" wx:if="{{isCanvas}}"/>
+        <!-- <image src="{{item}}" wx:for="{{tempFilePaths}}" class="newImg" /> -->
+        <image src="http://h5.beerqi.com/imgs/comment/t.png" mode="widthFix"  bindtap="addImg" wx:if="{{!isCanvas}}"/> 
+    </view>
+
+    <!-- 发布 -->
+    <view class="send" bindtap="sendComment">
+       发布
+    </view>
+</view>

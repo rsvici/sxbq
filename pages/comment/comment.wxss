@@ -1,0 +1,95 @@
+.comment {
+    background-color: #f5f5f5;
+    height: 100vh;
+    width: 750rpx;
+}
+
+.comment .first {
+    width: 750rpx;
+    height: 220rpx;
+}
+
+.comment .first .c_f_left {
+    width: 180rpx;
+    height: 180rpx;
+    float: left;
+    padding: 20rpx 40rpx;
+}
+
+.comment .first .c_f_left image {
+    width: 180rpx;
+}
+
+.comment .first .c_f_right {
+    width: 450rpx;
+    height: 120rpx;
+    float: left;
+    padding: 60rpx 0 0;
+}
+
+.comment .first .c_f_right view {
+    float: left;
+    width: 60rpx;
+    text-align: center;
+    margin: 0 45rpx;
+}
+
+.comment .first .c_f_right image {
+    width: 60rpx;
+    display: block;
+}
+
+.comment .first .c_f_right text {
+    font-size: 25rpx;
+    letter-spacing: 5rpx;
+}
+
+.comment .first .c_f_right .active text {
+    color: #957800;
+}
+
+
+/* 输入框 */
+
+.section textarea {
+    width: 670rpx;
+    padding: 30rpx 40rpx;
+    background-color: #fff;
+    font-size: 25rpx;
+    min-height: 300rpx;
+}
+
+
+/* 添加图片 */
+
+.addimg {
+    width: 750rpx;
+    background-color: #fff;
+    padding: 20rpx 40rpx;
+}
+
+.addimg image {
+    width: 120rpx;
+}
+
+.addimg .newImg {
+    height: 120rpx;
+}
+
+.addimg canvas {
+    height: 100px;
+    width: 100px;
+}
+
+
+/* 发布 */
+
+.send {
+    width: 300rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    font-size: 28rpx;
+    text-align: center;
+    margin: 70rpx auto 0;
+    background-color: #ffe900;
+}

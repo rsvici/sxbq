@@ -1,0 +1,187 @@
+.sharebox {
+    background-color: #1c1c1c;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.title image {
+    width: 750rpx;
+}
+
+.contentNo {
+    margin-top: -5rpx;
+}
+
+.contentNo image {
+    width: 666rpx;
+    height: 420rpx;
+    margin: 5rpx 39rpx;
+    border-radius: 10rpx;
+}
+
+
+/* 盒子商品 */
+
+.boxChildList {
+    background-size: contain;
+    background-position: 50% 50%;
+    border-radius: 19rpx;
+    position: relative;
+    margin: 15rpx 39rpx;
+    width: 666rpx;
+    height: 420rpx;
+}
+
+.boxChildList1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0 39rpx;
+    width: 666rpx;
+    height: 100vh;
+}
+
+
+/* 图标 */
+
+.signList {
+    position: absolute;
+    width: 750rpx;
+    min-height: 420rpx;
+    top: 0rpx;
+    left: -39rpx;
+    padding: 20rpx 0rpx 0rpx;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.signItem {
+    width: 25%;
+    height: 150rpx;
+    float: left;
+    text-align: center;
+}
+
+.signItem.signItemc2 {
+    width: 15%;
+    margin-top: 132rpx;
+}
+
+.signItem.signItemc2:first-of-type {
+    margin-left: 20vw;
+}
+
+.signItem .imgsign {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.signItem .imgsignc2 {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+
+/* 下标 */
+
+.undexList {
+    position: absolute;
+    width: 750rpx;
+    min-height: 420rpx;
+    top: 0rpx;
+    left: -39rpx;
+    padding: 20rpx 0rpx 0rpx;
+    background-color: rgba(0, 0, 0, .67);
+    box-sizing: border-box;
+}
+
+.undexItem {
+    padding-top: 70rpx;
+    box-sizing: border-box;
+    width: 188rpx;
+    height: 150rpx;
+    float: left;
+    text-align: right;
+}
+
+.undexItem:nth-of-type(4n+1) {
+    width: 105rpx;
+}
+
+.undexItemline {
+    width: 155rpx;
+    background-color: transparent;
+    float: left;
+    height: 10rpx;
+    margin: 16rpx -3rpx 0;
+}
+
+.undexItemNum {
+    color: #fff;
+    font-size: 24rpx;
+    background-color: #C9C9C9;
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 20rpx;
+    line-height: 40rpx;
+    text-align: center;
+    float: right;
+}
+
+.undexItemline.active,
+.undexItemNum.active {
+    background-color: #FFE900;
+    color: #000;
+}
+
+
+/* 发货时间 */
+
+.sendTime {
+    position: absolute;
+    width: 750rpx;
+    height: 420rpx;
+    top: 0rpx;
+    left: -39rpx;
+    padding: 20rpx 0rpx 0rpx;
+    background-color: rgba(0, 0, 0, .67);
+    box-sizing: border-box;
+}
+
+.sendTime .left {
+    width: 35%;
+    text-align: right;
+    float: left;
+    padding-top: 80rpx;
+}
+
+.sendTime .left image {
+    width: 73rpx;
+    height: 189rpx;
+}
+
+.sendTime .right {
+    width: 55%;
+    text-align: left;
+    float: right;
+    padding-top: 65rpx;
+    margin-right: 6vw;
+}
+
+.sendTime .right view {
+    color: #ccc;
+    font-size: 22rpx;
+    line-height: 40rpx;
+    letter-spacing: 2rpx;
+}
+
+.sendTime1 {
+    position: absolute;
+    width: 750rpx;
+    height: 100vh;
+    top: 0rpx;
+    left: -39rpx;
+    padding: 200rpx 0rpx 0rpx;
+    background-color: rgba(0, 0, 0, .67);
+    box-sizing: border-box;
+}

@@ -1,0 +1,197 @@
+/**app.wxss**/
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 200rpx 0;
+    box-sizing: border-box;
+}
+
+
+/* 客服 */
+
+.kefu {
+    position: fixed;
+    right: 30rpx;
+    bottom: 20rpx;
+    width: 50rpx;
+    height: 50rpx;
+    background-image: url('https://h5.beerqi.com/imgs/csr.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    background-color: transparent;
+    opacity: .8;
+}
+
+.kefu::after {
+    border: none;
+}
+
+.kefu.button-hover {
+    background-color: transparent;
+}
+
+
+/* 加载loading */
+
+.myloading {
+    width: 725rpx;
+    height: 150rpx;
+    text-align: center;
+}
+
+.myloading image {
+    width: 120rpx;
+    height: 80rpx;
+    margin-top: 25rpx;
+}
+
+
+/* 全屏loading */
+
+.fullloading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .5);
+    text-align: center;
+    z-index: 10000;
+}
+
+.fullloading image {
+    width: 180rpx;
+    height: 120rpx;
+    margin-top: 350rpx;
+}
+
+
+/* 提示弹框 */
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .5);
+    text-align: center;
+    z-index: 10000;
+}
+
+.popup image {
+    margin-top: 400rpx;
+    width: 450rpx;
+}
+
+
+/* 关闭弹框 */
+
+.popup1 .close_popup {
+    width: 80rpx;
+    height: 75rpx;
+    position: absolute;
+    z-index: 3;
+    top: 550rpx;
+    left: 330rpx;
+}
+
+.popup5 .close_popup {
+    width: 80rpx;
+    height: 75rpx;
+    position: absolute;
+    z-index: 3;
+    top: 610rpx;
+    left: 320rpx;
+}
+
+.popup25 .close_popup {
+    width: 80rpx;
+    height: 75rpx;
+    position: absolute;
+    z-index: 3;
+    top: 430rpx;
+    right: 145rpx;
+}
+
+.popup25 .good_popup {
+    width: 120rpx;
+    height: 75rpx;
+    position: absolute;
+    z-index: 3;
+    top: 710rpx;
+    left: 310rpx;
+}
+
+
+/* 会员 */
+
+.masterBox {
+    width: 750rpx;
+    position: relative;
+}
+
+.masterBox image {
+    width: 750rpx;
+}
+
+.masterBox view.first {
+    position: absolute;
+    top: 0.5vw;
+    left: 14vw;
+}
+
+.masterBox view.second {
+    position: absolute;
+    bottom: 3vw;
+    left: 14vw;
+}
+
+.masterBox view text {
+    /* font-weight: 700; */
+    font-size: 23rpx;
+    font-family: PingFangSC-Regular;
+}
+
+.masterBox view text.tz {
+    font-size: 25rpx;
+    color: #ffd31f;
+}
+
+
+/* 手机formId */
+
+.detailFooter .right button {
+    width: 100%;
+    height: 100%;
+    display: block;
+    opacity: 0;
+    border-radius: 0;
+}
+
+.recommend-view {
+    position: relative;
+}
+
+.recommend-view form {
+    width: 100vw;
+    height: 64.84vw;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.recommend-view button {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 0;
+    padding: 0;
+    opacity: 0;
+}

@@ -1,0 +1,19 @@
+<view class="member">
+    <view class="member1">
+        <image src="https://h5.beerqi.com/imgs/updata/member/member1.png" mode="widthFix"/>
+    </view>
+    <view class="member3">
+        <image src="https://h5.beerqi.com/imgs/updata/member/member3.png" mode="widthFix" bindtap="joinMember" />
+    </view>
+</view>
+<!-- 商品缺货提示弹框 -->
+<view class="popup popup1" wx-if="{{popupBol22}}">
+    <image src="http://h5.beerqi.com/imgs/popup/22.png" mode="widthFix" />
+    <view bindtap="closePopup" class="close_popup"></view>
+</view>
+
+<!-- 未登录提示弹框 -->
+<view class="popup popup1" wx-if="{{popupBol7}}">
+    <image src="http://h5.beerqi.com/imgs/popup/1.png" mode="widthFix" />
+    <view bindtap="closePopup1" class="close_popup"></view>
+</view>

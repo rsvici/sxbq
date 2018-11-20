@@ -1,0 +1,335 @@
+<view class="shouye">
+    <scroll-view scroll-x="true" class="tab-h">
+        <view class="tab-item {{currentTab==0?'active':''}}" >商品
+            <form bindsubmit="formSubmit" report-submit>
+                <button  data-current="0"  bindtap="swichNav"  formType="submit"></button>
+            </form>
+        </view>
+        <view class="tab-item {{currentTab==1?'active':''}}" >国家
+            <form bindsubmit="formSubmit"  report-submit>
+                <button bindtap="swichNav"  data-current="1"  formType="submit"></button>
+            </form>
+        </view>
+        <view class="tab-item {{currentTab==2?'active1':''}}" data-current="2" bindtap="swichNav">
+            <image data-current="2" bindtap="swichNav" src="https://h5.beerqi.com/imgs/subscribe.png"></image>
+        </view>
+        <view class="tab-item {{currentTab==3?'active':''}}" >套装
+            <form bindsubmit="formSubmit" report-submit>
+                <button  data-current="3" bindtap="swichNav" formType="submit"></button>
+            </form>
+        </view>
+        <view class="tab-item {{currentTab==4?'active':''}}" >秒杀
+            <form bindsubmit="formSubmit" report-submit>
+                <button data-current="4" bindtap="swichNav"  formType="submit"></button>
+            </form>
+        </view>
+    </scroll-view>
+    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindanimationfinish="switchTab" style="height:{{winHeight}}rpx">
+        <!-- 商品 -->
+        <swiper-item class="tab-for goodsList">
+            <!-- 搜索，筛选 -->
+            <view class="choice">
+                <view class="choiceTop">
+                    <form>
+                        <image src="https://h5.beerqi.com/imgs/fdj.png" height="100%;"></image>
+                        <input type="search" placeholder="寻找你喜爱的啤酒" id="keyword" bindblur="searchGoods" />
+                    </form>
+                    <view class="choiceKf" onClick='openNews()'>
+                        <button open-type="contact" session-from="微信小程序"></button>
+                    </view>
+
+                </view>
+                <view class="choicefotter">
+                    <view><text class="{{changetitlenum==1?'active':''}}" data-changetitlenum="1" bindtap="changeTitle">热度</text></view>
+                    <view><text class="{{changetitlenum==2?'active':''}}" data-changetitlenum="2" bindtap="changeTitle">酒精度</text></view>
+                    <view><text class="{{changetitlenum==3?'active':''}}" data-changetitlenum="3" bindtap="changeTitle">容量</text></view>
+                    <view><text class="{{changetitlenum==4?'active':''}}" data-changetitlenum="4" bindtap="changeTitle">价格</text></view>
+                </view>
+            </view>
+            <scroll-view scroll-y="true" class="scoll-h" bindscrolltolower="onReachBottom">
+                <view style="overflow:hidden">
+                    <view class="goodsListPadding" wx:for="{{expertList}}" wx:for-index="listIndex" wx:for-item="item">
+                        <navigator url="../detail/detail?detailId={{item.Id}}" hover-class="none">
+                            <view class="left" bindtap="goDetail(item.Id,item.ProDtl)">
+                                <image src="{{item.PictureUrl}}?{{MathRandomPic}}" width="100%"></image>
+                            </view>
+                        </navigator>
+                        <view class="right">
+                            <navigator url="../detail/detail?detailId={{item.Id}}" hover-class="none">
+                                <view class="first" bindtap="goDetail(item.Id,item.ProDtl)">
+                                    <text class="name">{{item.Name}}</text>
+                                    <view class="country-img">
+                                        <image src="https://h5.beerqi.com/imgs/list/{{item.CountryId}}.png" width="100%">
+                                        </image>
+                                    </view>
+                                </view>
+                                <view class="second" bindtap="goDetail(item.Id,item.ProDtl)">
+                                    <text class="prod-desc">{{item.ProdDesc}}</text>
+                                </view>
+                                <view class="third" bindtap="goDetail(item.Id,item.ProDtl)">
+                                    <view class="jjd">
+                                        <image src="https://h5.beerqi.com/imgs/jjd.png" height="100%"></image>
+                                        <text>{{item.AlcoholContent}}</text>
+                                    </view>
+                                    <view class="rl">
+                                        <image src="https://h5.beerqi.com/imgs/rl.png" height="100%"></image>
+                                        <text>{{item.Capacity}}</text>
+                                    </view>
+                                </view>
+                                <view class="fouth">
+                                      <image src="https://h5.beerqi.com/imgs/masterLogo.png" height="100%"   /><text style="font-weight:700">￥</text><text style="font-size: 30rpx;font-family:'newfont';font-weight:700">{{item.masterPrice}} </text><text> / {{item.ProDtl[0].AttrVal}}瓶</text>
+                                    <!-- <p>1瓶</p> -->
+                                </view>
+                                <view class="fifth">
+                                    <text>非会员价 : ￥{{item.ProDtl[0].SalePrice}}.00/ {{item.ProDtl[0].AttrVal}}瓶</text>
+                                </view>
+                            </navigator>
+                            <view class="goodsJoinShopcar">
+                                <image bindtap="goodsJoinShopcar" data-item="{{item}}" src="https://h5.beerqi.com/imgs/shopcarsmall.png" width="100%"></image>
+                            </view>
+                        </view>
+
+                    </view>
+                </view>
+
+                <!-- 加载 -->
+                <view class="myloading" wx:if="{{hasMore}}">
+                    <image src="https://h5.beerqi.com/imgs/xiala.gif" width="100%"></image>
+                </view>
+
+            </scroll-view>
+
+        </swiper-item>
+
+        <!-- 国家 -->
+        <swiper-item class="tab-for index-list">
+            <view class="choice" style="top:6.5vh">
+
+                <view class="choiceTop">
+                    <form>
+                        <image src="https://h5.beerqi.com/imgs/fdj.png" height="100%;"></image>
+                        <input type="search" placeholder="寻找你喜爱的啤酒" id="keyword" bindconfirm="listSearchGoods" />
+                    </form>
+                    <view class="choiceKf" onClick='openNews()'>
+                        <button open-type="contact" session-from="微信小程序"></button>
+                    </view>
+                </view>
+            </view>
+            <!-- 国家 -->
+            <scroll-view scroll-y="true" class="scoll-h index-list-left">
+                <view class="index-list-view {{listIndex==countryListContentId?'active':''}}" wx:for="{{countryList}}" wx:for-index="listIndex" wx:for-item="item" data-index="{{listIndex}}" bindtap="choiceCountry">
+                    <view class="top">
+                        <image src="https://h5.beerqi.com/imgs/list/{{item.state}}.png"></image>
+                    </view>
+                    <text>{{item.state}}</text>
+                </view>
+            </scroll-view>
+
+            <!-- 品牌 -->
+            <scroll-view scroll-y="true" class="scoll-h index-list-right">
+                <view class="index-list-view" wx:for="{{countryListContent}}" wx:for-index="listIndex" wx:for-item="item" data-countryId="{{item.brandId}}" bindtap="choiceCountryShowGoods">
+                    <view class="top">
+                        <image src="https://h5.beerqi.com/imgs/logos/{{item.title}}_logo.png"></image>
+                    </view>
+                    <text>{{item.title}}</text>
+                </view>
+            </scroll-view>
+        </swiper-item>
+
+        <!-- 推荐 -->
+        <swiper-item class="tab-for recommend">
+            <scroll-view scroll-y="true" class="scoll-h">
+                <!-- <view class="recommend-view" wx:for="{{cardList}}" wx:for-index="listIndex" wx:for-item="item" data-index="{{item}}" bindtap="recommendShoiceGoods">
+                    <image src="{{item.PictureUrl}}" wx:if="{{item.Id==20205}}" mode="widthFix"></image>
+                    <navigator url="../detailbox/detailbox?detailId={{item.Id}}" hover-class="none" wx:if="{{item.Id!=20205}}">
+                        <image src="{{item.PictureUrl}}?{{MathRandomPic}}" mode="widthFix"></image>
+                    </navigator>
+                </view> -->
+                <!-- <view class="recommend-view" wx:for="{{recommendList}}" wx:for-index="listIndex" wx:for-item="item" data-index="{{item}}" bindtap="recommendShoiceGoods">
+                    <navigator url="../detail/detail?detailId={{item.Id}}" hover-class="none">
+                        <image src="{{item.PictureUrl}}?{{MathRandomPic}}" mode="widthFix"></image>
+                    </navigator>
+                </view> -->
+
+                <!-- 第二次 -->
+                <!-- <view class="recommend-view" wx:for="{{recommendList}}" wx:for-index="listIndex" wx:for-item="item" data-index="{{item}}" bindtap="recommendShoiceGoods">
+                    <image src="{{item.PictureUrl}}" wx:if="{{item.Id==20296||item.Id==20205}}" mode="widthFix"></image>
+                    <navigator url="../detailbox/detailbox?detailId={{item.Id}}" hover-class="none" wx:if="{{item.Id!=20296 && item.Id!=20205}}">
+                        <image src="{{item.PictureUrl}}?{{MathRandomPic}}" mode="widthFix"></image>
+                    </navigator>
+                </view> -->
+
+                <!-- 第三次 -->
+                <view class="recommend-view">
+                     <navigator url="../question/question" hover-class="none" >
+                        <image src="http://h5.beerqi.com/imgs/question/1.jpg?{{MathRandomPic}}" mode="widthFix"></image>
+                    </navigator>
+                </view>
+                 <view class="recommend-view">
+                    <navigator url="../detailpack_1/detailpack_1" hover-class="none" >
+                        <form bindsubmit="formSubmit" report-submit>
+                            <button formType="submit" ></button>
+                        </form>
+                        <image src="http://h5.beerqi.com/imgs/updata/0926/1929/5.jpg?{{MathRandomPic}}" mode="widthFix"></image>
+                    </navigator>
+                </view>
+                <view class="recommend-view">
+                    <navigator url="../detailbox/detailbox?detailId=20293" hover-class="none" >
+                        <form bindsubmit="formSubmit" report-submit>
+                            <button formType="submit" ></button>
+                        </form>
+                        <image src="http://h5.beerqi.com/imgs/updata/0926/1929/2.jpg?{{MathRandomPic}}" mode="widthFix"></image>
+                    </navigator>
+                </view>
+                <view class="recommend-view">
+                    <navigator url="../detailbox/detailbox?detailId=20294" hover-class="none" >
+                        <form bindsubmit="formSubmit" report-submit>
+                            <button formType="submit" ></button>
+                        </form>
+                        <image src="http://h5.beerqi.com/imgs/updata/0926/1929/3.jpg?{{MathRandomPic}}" mode="widthFix"></image>
+                    </navigator>
+                </view>
+                <view class="recommend-view">
+                    <navigator url="../detailbox/detailbox?detailId=20295" hover-class="none" >
+                        <form bindsubmit="formSubmit" report-submit>
+                            <button formType="submit" ></button>
+                        </form>
+                        <image src="http://h5.beerqi.com/imgs/updata/0926/1929/4.jpg?{{MathRandomPic}}" mode="widthFix"></image>
+                    </navigator>
+                </view> 
+
+            </scroll-view>
+        </swiper-item>
+
+        <!-- 套装 -->
+        <swiper-item class="tab-for recommend">
+            <scroll-view scroll-y="true" class="scoll-h">
+                <view class="recommend-view">
+                    <navigator url="../detailpack/detailpack?productId=40" hover-class="none" >
+                        <image src="http://h5.beerqi.com/imgs/updata/0926/t9.jpg?{{MathRandomPic}}" mode="widthFix"></image>
+                    </navigator>
+                </view>
+                 <view class="recommend-view">
+                    <navigator url="../detailpack/detailpack?productId=44" hover-class="none" >
+                        <image src="http://h5.beerqi.com/imgs/updata/0926/1929/t98.jpeg?{{MathRandomPic}}" mode="widthFix"></image>
+                    </navigator>
+                </view>
+                <view class="recommend-view">
+                    <navigator url="../detailpack/detailpack?productId=36" hover-class="none" >
+                        <image src="http://h5.beerqi.com/imgs/updata/0926/t0.jpg?{{MathRandomPic}}" mode="widthFix"></image>
+                    </navigator>
+                </view>
+                <view class="recommend-view" wx:for="{{packageList}}" wx:for-index="listIndex" wx:for-item="item" data-index="{{item}}" bindtap="recommendShoiceGoods">
+                    <navigator url="../detailpack/detailpack?productId={{item.Id}}" hover-class="none">
+                        <image src="{{item.PictureUrl}}?{{MathRandomPic}}"  mode="widthFix" lazy-load="true"></image>
+                    </navigator>
+                </view>
+                <view style="height:30rpx">
+                </view>
+            </scroll-view>
+        </swiper-item>
+
+        <!-- 秒杀 -->
+        <swiper-item class="tab-for salesList">
+            <scroll-view scroll-y="true" class="scoll-h">
+                <view style="overflow:hidden;">
+                    <view class="goodsListPadding" wx:for="{{salesList}}" wx:for-index="listIndex" wx:for-item="item">
+                        <view class="left" bindtap="goDetail(item.Id,item.ProDtl)">
+                            <navigator url="../detailsale/detailsale?detailId={{item.ItemId}}" hover-class="none">
+                                <image src="{{item.PictureUrl}}?{{MathRandomPic}}" width="100%"></image>
+                            </navigator>
+                        </view>
+                        <view class="right">
+                            <view class="sales">
+                                <view class="saleft">
+                                    <view class="span1">
+                                        <image src="https://h5.beerqi.com/imgs/sale.png" height="80%">
+                                        </image>
+                                    </view>
+                                    <view class="span2">
+                                        <view>
+                                            ￥{{item.GroupBuyPrice}}.00/瓶
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="saright">
+                                    <view class="saleFrist">
+                                        距结束还剩:
+                                    </view>
+                                    <view class="saleSecond">
+                                        {{item.newSalesDate.t}}天<text>{{item.newSalesDate.h}}</text>:<text>{{item.newSalesDate.m}}</text>:<text>{{item.newSalesDate.s}}</text>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="first" bindtap="goDetail(item.Id,item.ProDtl)">
+                                <text class="name">{{item.ItemName}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+
+                <view style="height:30rpx">
+                </view>
+            </scroll-view>
+        </swiper-item>
+    </swiper>
+</view>
+
+<!-- 附加gif -->
+<!-- <view class="beerqi_activity" wx-if="{{activityBol}}">
+    <image src="http://h5.beerqi.com/imgs/updata/0905/active.gif" bindtap="goActivity" mode="widthFix"/>
+    <view bindtap="closeBQactivity" class="close_bqact">
+    </view>
+</view> -->
+<view class="beerqi_activity" wx-if="{{activityBol}}">
+    <swiper  duration="500" class="swiper" indicator-dots="true" indicator-color="#333" indicator-active-color="white">
+        <block>
+            <swiper-item>
+                <navigator url="../detailpack/detailpack?productId=40" hover-class="none" >
+                    <image src="http://h5.beerqi.com/imgs/updata/0926/1.png" class="slide-image"  mode="widthFix"/>
+                </navigator>
+            </swiper-item>
+            <swiper-item>
+                <navigator url="../detailpack_1/detailpack_1" hover-class="none" >
+                    <image src="http://h5.beerqi.com/imgs/updata/0926/2.png" class="slide-image"  mode="widthFix"/>
+                </navigator>
+            </swiper-item>
+            <swiper-item>
+                <navigator url="../detailpack/detailpack?productId=36" hover-class="none" >
+                    <image src="http://h5.beerqi.com/imgs/updata/0926/3.png" class="slide-image"  mode="widthFix"/>
+                </navigator>
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <view bindtap="closeBQactivity" class="close_bqact">
+        <form bindsubmit="formSubmit" report-submit>
+            <button formType="submit" ></button>
+        </form>
+    </view>
+</view>
+<!-- 客服 -->
+<!-- <button open-type="contact"  class="kefu" session-from="微信小程序"></button> -->
+
+
+<!-- 未登录提示弹框 -->
+<view class="popup popup1" wx-if="{{popupBol1}}">
+    <image src="http://h5.beerqi.com/imgs/popup/1.png" mode="widthFix" />
+    <view bindtap="closePopup1" class="close_popup">
+    </view>
+</view>
+
+
+<!-- 缺货提示弹框 -->
+<view class="popup popup1" wx-if="{{popupBol}}">
+    <image src="http://h5.beerqi.com/imgs/popup/7.png" mode="widthFix" />
+    <view bindtap="closePopup" class="close_popup">
+    </view>
+</view>
+
+<!-- 成功提示弹框 -->
+<view class="popup popup1" wx-if="{{popupBol10}}">
+    <image src="http://h5.beerqi.com/imgs/popup/10.png" mode="widthFix" />
+    <view bindtap="closePopup" class="close_popup">
+    </view>
+</view>

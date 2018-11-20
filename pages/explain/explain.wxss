@@ -1,0 +1,33 @@
+.exp_container {
+    width: 750rpx;
+    height: 100vh;
+    background-color: #f5f5f5;
+    border-top: 1px solid #000;
+}
+
+.exp_container .top {
+    height: 80rpx;
+    background-color: #fff;
+    line-height: 80rpx;
+}
+
+.exp_container .top .title {
+    font-size: 22rpx;
+    width: 180rpx;
+    text-align: right;
+    float: left;
+}
+
+.exp_container .top .content {
+    font-size: 30rpx;
+    width: 400rpx;
+    text-align: left;
+    float: left;
+    color: #aa821e;
+    padding-left: 10rpx;
+    font-weight: 700;
+}
+
+.exp_container image {
+    width: 100%;
+}

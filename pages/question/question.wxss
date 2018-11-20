@@ -1,0 +1,196 @@
+.first_web {
+    width: 750rpx;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url('http://h5.beerqi.com/imgs/question/img_start.jpg');
+    background-size: cover;
+    background-position: 50% 100%;
+}
+
+.third_web {
+    width: 750rpx;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url('http://h5.beerqi.com/imgs/question/img_answer.jpg');
+    background-size: cover;
+    background-position: 50% 100%;
+    position: relative;
+}
+
+.third_web>image {
+    position: absolute;
+    width: 70%;
+    left: 15%;
+    bottom: 11vh;
+}
+
+.third_web .dingyue {
+    position: absolute;
+    width: 25%;
+    right: 15%;
+    bottom: 11vh;
+}
+
+.third_web .dingyue image {
+    width: 100%;
+}
+
+.first_web .starQuetion {
+    position: absolute;
+    bottom: 16vh;
+    right: 2vw;
+    width: 40vw;
+    height: 30vw;
+}
+
+.second_web {
+    width: 750rpx;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url('http://h5.beerqi.com/imgs/question/bg_question.jpg');
+    background-size: cover;
+    background-position: 50% 60%;
+}
+
+.second_web .content {
+    position: absolute;
+    bottom: 17vh;
+    left: 5vw;
+    width: 90vw;
+    height: 115.1vw;
+    /* height: 70vh; */
+    background-image: url('http://h5.beerqi.com/imgs/question/img_question.png');
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.second_web .content .title {
+    margin-top: 1vw;
+    width: 95%;
+    height: 17vw;
+    margin-left: 2vw;
+}
+
+.second_web .content .title image {
+    width: 100%;
+}
+
+.second_web .content .questionList {
+    width: 100%;
+    padding: 1vw 7vw;
+    position: relative;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.second_web .content .questionContent {
+    overflow: hidden;
+    width: 100%;
+    margin-top: 2.6vw;
+}
+
+.second_web .content .questionList .quan {
+    height: 15px;
+    width: 15px;
+    border-radius: 9.5px;
+    border: 2px solid #000;
+    float: left;
+    position: relative;
+    margin-top: 1px;
+}
+
+.second_web .content .questionList .quan2 {
+    height: 11px;
+    width: 11px;
+    border-radius: 5.5px;
+    border: 0px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background-color: #000;
+}
+
+.second_web .content .questionList text {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: PingFangSC-Regular;
+    display: block;
+    float: left;
+    width: 65vw;
+    line-height: 20px;
+    letter-spacing: 2px;
+    margin-left: 2vw;
+}
+
+.second_web .content .bgImg {
+    position: absolute;
+    bottom: 5vh;
+    left: 10vw;
+    width: 70vw;
+}
+
+.second_web .content .bgImg image {
+    width: 100%;
+}
+
+.second_web .content .bgImg image.image1 {
+    width: 40%;
+    float: right;
+    margin-right: 15%;
+}
+
+.second_web .content .bgImg image.image2 {
+    width: 70%;
+    margin-left: 15%;
+}
+
+
+/* 底部 */
+
+.second_web .nextquestion {
+    position: absolute;
+    bottom: 4vh;
+    left: 35vw;
+    width: 30vw;
+}
+
+.second_web .nextquestion image {
+    width: 100%;
+}
+
+
+/* 十一题特殊处理 */
+
+.second_web .content .questionList .hadquestion>text {
+    font-size: 12px;
+    display: block;
+    width: 96%;
+    padding-left: 7%;
+    box-sizing: border-box;
+    padding-top: 0.5vh;
+}
+
+.second_web .content .questionList .hadquestion .hadquestionanswer>view {
+    width: 34%;
+    float: left;
+    overflow: hidden;
+}
+
+.second_web .content .questionList .hadquestion .hadquestionanswer {
+    overflow: hidden;
+    width: 100%;
+    padding: 1vh 0 2vh;
+}
+
+.second_web .content .questionList .hadquestion .hadquestionanswer text {
+    font-size: 14px;
+    width: auto;
+}
+
+.second_web .content .questionList .hadquestion .hadquestionanswer .had_first {
+    width: 24%;
+}
+
+.second_web .content .questionList .hadquestion .hadquestionanswer .quan {
+    float: left;
+}

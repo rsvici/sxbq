@@ -1,0 +1,29 @@
+<scroll-view scroll-y="true"  class="bindphone">
+    <view class="first">
+        <view class="pic">
+            <open-data type="userAvatarUrl"></open-data>
+        </view>
+    </view>
+    <view class="bindphone_tel">
+        <label class="tel_label">手机号码</label> 
+        <input class="tel_input" name="rName" placeholder="请输入您的手机号" placeholder-class="tel_place" type="number" maxlength="11" bindinput ="telInput"></input> 
+        <view class="tel_btn"  bindtap="postMobileNo">
+            {{telBtn}}
+        </view>     
+    </view>
+    <view class="bindphone_tel">
+        <label class="tel_label bind_label" >验证码</label> 
+        <input class="tel_input bindInput" name="rName" placeholder="请输入6位验证码" placeholder-class="tel_place" type="number" maxlength="6" bindinput ="codeInput"></input>    
+    </view>
+
+    <view class="submit"  bindtap="bindMobile" wx:if="{{!entmobileBol}}">
+        确  认
+    </view>
+    <view class="submit"  bindtap="bindMobile" wx:if="{{entmobileBol}}" style="background-color: #E8D33C;color:#fff;">
+        确  认
+    </view>
+</scroll-view>
+
+
+
+

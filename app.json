@@ -1,0 +1,65 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/question/question",
+        "pages/bindphone/bindphone",
+        "pages/setpwd/setpwd",
+        "pages/member/member",
+        "pages/pay/pay",
+        "pages/detailpack/detailpack",
+        "pages/detailpack_1/detailpack_1",
+        "pages/impay/impay",
+        "pages/share/share",
+        "pages/my/my",
+        "pages/shopcar/shopcar",
+        "pages/comlist/comlist",
+        "pages/redhot/redhot",
+        "pages/box/box",
+        "pages/comment/comment",
+        "pages/explain/explain",
+        "pages/wxpay/wxpay",
+        "pages/order/order",
+        "pages/logistics/logistics",
+        "pages/detailsale/detailsale",
+        "pages/detail/detail",
+        "pages/detailbox/detailbox",
+        "pages/activity/activity"
+    ],
+    "window": {
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "啤气",
+        "navigationBarBackgroundColor": "#000",
+        "backgroundColor": "#f5f5f5"
+    },
+    "tabBar": {
+        "color": "#575757",
+        "backgroundColor": "#000000",
+        "selectedColor": "#ffffff",
+        "borderStyle": "white",
+        "list": [{
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "image/shouye.png",
+                "selectedIconPath": "image/shouye1.png"
+            },
+            {
+                "pagePath": "pages/shopcar/shopcar",
+                "text": "购物车",
+                "iconPath": "image/shopcar.png",
+                "selectedIconPath": "image/shopcar1.png"
+            },
+            {
+                "pagePath": "pages/redhot/redhot",
+                "text": "红包",
+                "iconPath": "image/redhot.png",
+                "selectedIconPath": "image/redhot1.png"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "我的",
+                "iconPath": "image/my.png",
+                "selectedIconPath": "image/my1.png"
+            }
+        ]
+    }
+}

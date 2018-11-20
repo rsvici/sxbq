@@ -1,0 +1,28 @@
+view.member {
+    height: 100vh;
+    width: 100vw;
+    background-image: url('https://h5.beerqi.com/imgs/updata/member/memberbg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
+    overflow: hidden;
+}
+
+view .member1 {
+    margin: 3vh 50rpx 0;
+    width: 650rpx;
+}
+
+view .member2 {
+    margin: 3vh auto 0;
+    width: 550rpx;
+}
+
+view .member3 {
+    margin: 2vh auto 0;
+    width: 400rpx;
+}
+
+view image {
+    width: 100%;
+}

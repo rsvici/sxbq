@@ -1,0 +1,47 @@
+<view class="redhot"  wx-if="{{!isHotPacketBol}}">
+    <view class="ul" class="redhotlist" style="display: block">
+       <view class="li" wx:for="{{hotPacket}}"  wx-if="{{(item.Status==0)&&item.IsShow}}">
+            <view class="norm" wx-if="{{item.CouponPriceLimit!=99}}">
+                <image wx-if="{{item.CouponGrpId<1252}}" src="https://h5.beerqi.com/imgs/redhot2.png" width="100%"></image>
+                <image wx-if="{{item.CouponGrpId>=1252}}" src="https://h5.beerqi.com/imgs/redhot3.png" width="100%"></image>
+
+                
+                <view class="redhotlist_left">
+                    <view wx-if="{{!(item.CouponGrpId==1258||item.CouponGrpId==1259||item.CouponGrpId==1260)}}"><text class="sign" >￥</text>{{item.CouponValue}}</view>
+
+                    <view  wx-if="{{item.CouponGrpId==1258||item.CouponGrpId==1259||item.CouponGrpId==1260}}"><text class="sign"></text>8折</view>
+                </view>
+
+                <view class="redhotlist_bottom">
+                    <!-- <text class="name">{{item.CouponName}}</text> -->
+                    <text class="name"  wx-if="{{item.CouponPriceLimit==0}}">无门槛</text>
+
+                    <text class="name"  wx-if="{{item.CouponPriceLimit!=0&&!(item.CouponGrpId==1258||item.CouponGrpId==1259||item.CouponGrpId==1260)}}">满{{item.CouponPriceLimit}}减{{item.CouponValue}}</text>
+
+                    <text class="name"  wx-if="{{item.CouponPriceLimit!=0&&(item.CouponGrpId==1258||item.CouponGrpId==1259||item.CouponGrpId==1260)}}">{{item.CouponName}}</text>
+
+                    <text class="valid">有效期至{{item.EndDate}}</text>
+                </view>
+            </view>
+            <view class="tiyan"  wx-if="{{item.CouponPriceLimit==99}}">
+                <image src="https://h5.beerqi.com/imgs/redhot1.png" width="100%"></image>
+                <view class="redhotlist_left">
+                    <view  wx:if="{{item.CouponPriceLimit==89.1}}"><text class="sign">￥</text>9.9</view>
+                    <view wx:if="{{item.CouponPriceLimit!=89.1}}"><text class="sign">￥</text>{{item.CouponValue}}</view>
+                </view>
+
+                <view class="redhotlist_bottom" style="bottom:7vw">
+                    <text class="valid">有效期至{{item.EndDate}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="redhotNull"   wx-if="{{isHotPacketBol}}">
+    <image src="https://h5.beerqi.com/imgs/hotBg.jpg" />
+</view>
+  
+
+<!-- 客服 -->
+<button open-type="contact"  class="kefu" session-from="微信小程序"></button>

@@ -1,0 +1,11 @@
+<view class="exp_container">
+    <view class="top">
+        <view class="title">
+            {{title}}
+        </view>
+        <view class="content">
+            {{content}}
+        </view>
+    </view>
+    <image src="{{url}}" mode="widthFix"/>
+</view>

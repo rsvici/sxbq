@@ -1,0 +1,33 @@
+<scroll-view scroll-y="true" class="scoll-h" bindscrolltolower="onReachBottom">
+    <view class="goCoList">
+        <view wx:for="{{comment}}" class="comlist">
+            <view class="top">
+                <view class="left">
+                    <view class="goTLFirst">
+                        <view class="left1">
+                            <image src="https://h5.beerqi.com/imgs/hy.png" width="100%"></image>
+                        </view>
+                        <view class="right1">
+                            <text>{{item.UserName}}</text>
+                        </view>
+                    </view>
+                    <view class="goTLSecond">
+                        <image src="https://h5.beerqi.com/imgs/pj1.png" width="100%"></image>
+                        <image src="https://h5.beerqi.com/imgs/pj2.png" width="100%"></image>
+                        <image src="https://h5.beerqi.com/imgs/pj3.png" width="100%"></image>
+                    </view>
+                </view>
+                <view class="right" style="text-align:right;">
+                    <image src="{{smallitem.PictureUrl}}" width="100%" wx:for='{{item.PicLists}}' wx:for-item="smallitem"></image>
+                </view>
+            </view>
+            <view class="comment">
+                <text>{{item.ComtComment}}</text>
+            </view>
+        </view>
+    </view>
+    <!-- 加载 -->
+    <view class="myloading" wx:if="{{hasMore}}">
+        <image src="https://h5.beerqi.com/imgs/xiala.gif" width="100%"></image>
+    </view>
+</scroll-view>

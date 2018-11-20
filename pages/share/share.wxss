@@ -1,0 +1,82 @@
+.sharebox {
+    background-color: #1c1c1c;
+    min-height: 100vh;
+}
+
+view image {
+    display: block;
+    width: 750rpx;
+    margin-top: -1rpx;
+}
+
+.content {
+    width: 100%;
+    height: 300rpx;
+}
+
+.content .share,
+.content .draw {
+    text-align: center;
+    width: 750rpx;
+}
+
+.content .share {
+    padding-top: 30rpx;
+}
+
+.content .share button {
+    width: 160rpx;
+    height: 160rpx;
+    overflow: hidden;
+    border-radius: 80rpx;
+    background-image: url('http://h5.beerqi.com/imgs/beerqiBoxs/btn_fx.png');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    display: block;
+    margin: 0rpx auto 20rpx;
+}
+
+.content .share text {
+    font-size: 28rpx;
+    color: #fff;
+}
+
+.content .draw {
+    padding-top: 50rpx;
+}
+
+.content .draw input {
+    height: 80rpx;
+    width: 600rpx;
+    text-align: center;
+    display: block;
+    border: 1px solid #474747;
+    border-radius: 10rpx;
+    margin: 0rpx auto 20rpx;
+    font-size: 32rpx;
+    color: #ccc;
+}
+
+.tel_place {
+    color: #cdcdcd;
+}
+
+.content .draw view {
+    height: 80rpx;
+    width: 600rpx;
+    text-align: center;
+    display: block;
+    border: 1px solid #474747;
+    border-radius: 10rpx;
+    margin: 30rpx auto 20rpx;
+    font-size: 32rpx;
+    color: #cdcdcd;
+    background-color: #474747;
+    line-height: 80rpx;
+}
+
+.content .draw .freeDraw2 {
+    background-color: #ffe600;
+    color: #000;
+}

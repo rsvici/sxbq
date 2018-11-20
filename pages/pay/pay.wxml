@@ -1,0 +1,231 @@
+<scroll-view class="gopayContent" >
+	<view class="list fffirst" style="height: 22vw">
+		<image src="https://h5.beerqi.com/imgs/dizhi.png" width="100%" bindtap='goAddress' wx-if='{{!addfirst}}'></image>
+		<view class="fff_choice" wx-if='{{addfirst}}' bindtap='goAddress'>
+			<view class="ffirst">	
+				<view class="left">
+					{{address.userName}}
+				</view>
+				<view class="right" >
+					{{address.telNumber}}
+				</view>
+			</view>
+			<view class="second">
+                {{address.provinceName}}{{address.cityName}}{{address.countyName}}{{address.detailInfo}}
+			</view>
+		</view>
+		<button open-type="openSetting" wx:if="{{openAddreeSett}}" class="usersetting" bindopensetting="closeAddreeSett">打开授权</button>
+	</view>
+    <!-- 普通商品 -->
+	<view class="list second payShowListFun" wx:for="{{normalGoods}}">
+        <view class="imgages">
+            <image class="navimg" src="{{item.Url}}"></image>
+        </view>
+        <view class="info">
+            <view class="title">{{item.ProductName}}</view>
+            <view class="specify">规格：{{item.ProDtl[0].AttrVal}}</view>
+            <view class="charge">￥<text>{{item.PriceSell}}</text></view>
+            <view class="buy-num">
+                <text class="goodsNum">X{{item.Quantity}}</text>
+            </view>
+        </view>
+	</view>
+    <!-- 组合商品 -->
+    <view class="list second payShowListFun" wx:for="{{packageGoods}}">
+        <view class="imgages">
+            <image class="navimg" src="{{item.Url}}"></image>
+        </view>
+        <view class="info">
+            <view class="title">{{item.ProductName}}</view>
+            <view class="specify">规格：{{item.ProDtl[0].AttrVal}}</view>
+            <view class="charge">￥<text>{{item.PriceSell}}</text></view>
+            <view class="buy-num">
+                <text class="goodsNum">X{{item.Quantity}}</text>
+            </view>
+        </view>
+	</view>
+	<!-- 红包  -->
+	<view class="fifth list" >
+		<view class="first">
+			<view class="left" >
+				红包
+			</view>
+			<view class="right" bindtap='hongbaoIsFun' >
+				<text style="color: #aa821e;width: 60%" class="span1">查看可用优惠券</text>
+				<image src="https://h5.beerqi.com/imgs/godown.png"></image>
+			</view>
+		</view>
+		<view class='redhot' wx-if="{{isShowRedHot}}">
+			<view class="ul" class="redhotlist" style="display: block">
+				<view class="li" wx:for="{{hotPacket}}"  wx-if="{{(item.Status==0)&&item.IsShow&&item.IsCanUser}}" bindtap="choiceRedhot" data-item="{{item}}" data-index="{{index}}">
+					<view  wx-if="{{item.CouponPriceLimit!=99}}">
+						  	<image wx-if="{{item.CouponGrpId<1252}}" src="https://h5.beerqi.com/imgs/redhot2.png" width="100%"></image>
+                			<image wx-if="{{item.CouponGrpId>=1252}}" src="https://h5.beerqi.com/imgs/redhot3.png" width="100%"></image>
+						<view class="redhotlist_left">
+
+							<view wx-if="{{!(item.CouponGrpId==1258||item.CouponGrpId==1259||item.CouponGrpId==1260)}}"><text class="sign" >￥</text>{{item.CouponValue}}</view>
+
+                    		<view  wx-if="{{item.CouponGrpId==1258||item.CouponGrpId==1259||item.CouponGrpId==1260}}"><text class="sign"></text>8折</view>
+
+						</view>
+						<view class="redhotlist_bottom">
+							<text class="name"  wx-if="{{item.CouponPriceLimit==0}}">无门槛</text>
+							<text class="name"  wx-if="{{item.CouponPriceLimit!=0&&!(item.CouponGrpId==1258||item.CouponGrpId==1259||item.CouponGrpId==1260)}}">满{{item.CouponPriceLimit}}减{{item.CouponValue}}</text>
+
+                    		<text class="name"  wx-if="{{item.CouponPriceLimit!=0&&(item.CouponGrpId==1258||item.CouponGrpId==1259||item.CouponGrpId==1260)}}">{{item.CouponName}}</text>
+							
+
+							<text class="valid">有效期至{{item.EndDate}}</text>
+						</view>
+						<text class="round {{choiceRedhotNum==index?'active':''}}" ></text>
+					</view>
+					<view class="tiyan"  wx-if="{{item.CouponPriceLimit==99}}">
+						<image src="https://h5.beerqi.com/imgs/redhot1.png" width="100%"></image>
+						<view class="redhotlist_left">
+							 <view  wx:if="{{item.CouponPriceLimit==89.1}}"><text class="sign">￥</text>9.9</view>
+                    		<view wx:if="{{item.CouponPriceLimit!=89.1}}"><text class="sign">￥</text>{{item.CouponValue}}</view>
+						</view>
+
+						<view class="redhotlist_bottom" style="bottom:5vw">
+							<text class="valid">有效期至{{item.EndDate}}</text>
+						</view>
+						<text class="round {{choiceRedhotNum==index?'active':''}}" ></text>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="first" wx-if="{{bouns}}">
+			<view class="left" >
+				瓶盖
+			</view>
+			<view class="right" bindtap='isUsedBouns'>
+                <text class="span1 newBounsSpan2 " style="color: #aa821e;">可使用{{bouns}}瓶盖</text>
+				<text class="newBounsSpan {{isBouns?'active':''}}"></text>
+			</view>
+		</view>
+	</view>
+	
+	<!-- 金额 -->
+	<view class="list third">
+		<view class="ul ">
+			<view  class="li" >
+				<view class="left">商品总金额</view>
+				<view class="right"><text class="span1">￥</text>{{showAllMoney}}</view>
+			</view>
+			<view class="li2 li">
+				<view class="left" wx-if="{{!isBeerQiTiyanka}}">运费<text>满128包邮</text></view>
+				<view class="left" wx-if="{{isBeerQiTiyanka}}">运费<text>体验商品包邮</text></view>
+				<view class="right"><text class="span1">￥</text>{{fare}}<text>.00</text></view>
+			</view>
+			<view class="li3 li">
+				<view class="left">实际应付</view>
+				<view class="right"><text class="span1">￥</text>{{money}}<text></text></view>
+			</view>
+		</view>
+	</view>
+
+
+	<!-- 适配iphonex -->
+	<view  style="height:250rpx;"  >
+	</view>
+
+	<!--  备注 -->
+	<!-- <view class="fifth list" style="height:40vw;margin-bottom:50rpx;">
+		<view class="second">
+			<text>填写备注</text>
+			<textarea placeholder="备注"></textarea>
+		</view>
+	</view> -->
+</scroll-view>
+
+<!-- 普通手机 -->
+ <!-- 会员 -->
+<view class="masterBox" id="masterBoxPt" wx:if="{{!isIphoneX}}">
+	<navigator url="../member/member" hover-class="none" wx-if="{{!masterBol}}">
+		<image src="https://h5.beerqi.com/imgs/joinMember.jpg" mode="widthFix"></image>
+	</navigator>
+	<image src="https://h5.beerqi.com/imgs/joinMember2.jpg" mode="widthFix" wx-if="{{masterBol}}"></image>
+	<view class="first">
+		<text>啤气Master会员专享价<text class="tz">{{masterPrice}}元</text></text>
+	</view>
+	<view class="second">
+		<text>开通会员仅需<text class="tz">9.9元</text>，此订单可省{{masterSales}}元</text>
+	</view>
+	
+</view>
+<!-- 底部结算 -->
+<view class="shopcarFooter"  style="height:80rpx" wx:if="{{!isIphoneX}}">
+	<view class="center">
+		<view class="first"  style="height:80rpx;line-height:80rpx">
+			<text class="span1">总计:</text><text style="font-size: 30rpx;">￥</text><text>{{money}}</text><text style="font-size: 30rpx;"></text><text class="span2">(共优惠:¥</text><text class="span2" style="font-size:32rpx">{{discount}}</text><text class="span2"></text><text class="span2">)</text>
+		</view>
+	</view>
+	<view class="right"  bindtap="goPay" style="height:80rpx;line-height:80rpx">
+		<text class="goPay">提交订单</text>
+	</view>
+</view>
+
+
+<!-- iphoneX -->
+ <!-- 会员 -->
+<view class="masterBox" id="masterBoxX" wx:if="{{isIphoneX}}">
+		<navigator url="../member/member" hover-class="none" wx-if="{{!masterBol}}">
+            <image src="https://h5.beerqi.com/imgs/joinMember.jpg" mode="widthFix"></image>
+        </navigator>
+        <image src="https://h5.beerqi.com/imgs/joinMember2.jpg" mode="widthFix" wx-if="{{masterBol}}"></image>
+		<view class="first">
+			<text>啤气Master会员专享价<text class="tz">{{masterPrice}}元</text></text>
+		</view>
+		<view class="second">
+			<text>开通会员仅需<text class="tz">9.9元</text>，此订单可省{{masterSales}}元</text>
+		</view>
+
+</view>
+
+<!-- 底部结算 -->
+<view class="shopcarFooter"  style="height:130rpx" wx:if="{{isIphoneX}}">
+	<view class="center">
+		<view class="first"  style="height:130rpx;line-height:90rpx">
+			<text class="span1">总计:</text><text style="font-size: 30rpx;">￥</text><text>{{money}}</text><text style="font-size: 30rpx;"></text><text class="span2">(共优惠:¥</text><text class="span2" style="font-size:32rpx">{{discount}}</text><text class="span2"></text><text class="span2">)</text>
+		</view>
+	</view>
+	<view class="right"  bindtap="goPay" style="height:130rpx;line-height:90rpx">
+		<text class="goPay">提交订单</text>
+	</view>
+</view>
+
+<!-- 加载 -->
+<view class="fullloading" wx:if="{{hasMore}}">
+	<image src="https://h5.beerqi.com/imgs/xiala.gif" width="100%"></image>
+</view>
+
+<!-- 地址提示弹框 -->
+<view  class="popup popup1" wx-if="{{popupBol11}}">
+    <image  src="http://h5.beerqi.com/imgs/popup/11.png"  mode="widthFix"/>
+    <view bindtap="closePopup" class="close_popup">
+    </view>
+</view>
+
+
+
+<!-- 优惠商品不可使用优惠券 -->
+<view  class="popup popup5" wx-if="{{popupBol2}}">
+    <image  src="http://h5.beerqi.com/imgs/popup/2.png"  mode="widthFix"/>
+    <view bindtap="closePopup" class="close_popup">
+    </view>
+</view> 
+
+<!-- 赠送用优惠券 -->
+<view  class="popup popup5" wx-if="{{popupBol23}}">
+    <image  src="http://h5.beerqi.com/imgs/popup/23.png"  mode="widthFix"/>
+    <view bindtap="closePopupCard" class="close_popup">
+    </view>
+</view> 
+
+<!-- 价格未满足条件 -->
+<view  class="popup popup5" wx-if="{{popupBol8}}">
+    <image  src="http://h5.beerqi.com/imgs/popup/8.png"  mode="widthFix"/>
+    <view bindtap="closePopup" class="close_popup">
+    </view>
+</view>
+

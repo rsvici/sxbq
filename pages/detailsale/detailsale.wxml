@@ -1,0 +1,264 @@
+<view class="topBorder"></view>
+<scroll-view scroll-y="true" class="detail" wx:if="{{!hasMore}}">
+    <!-- banner -->
+    <swiper indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+        <block wx:for="{{goodsDetail.ExtraPicList}}">
+            <swiper-item>
+                <image src="{{item.ImgUrl}}" data-src="{{item.ImgUrl}}" bindtap="previewImage"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+    <!-- 详情属性 -->
+    <view class="detailList">
+        <view class="first">
+            <text>{{goodsDetail.ProductName}}</text>
+        </view>
+        <view class="second">
+            <text>{{goodsDetail.Desc}}</text>
+        </view>
+        <view class="fouth">
+            <view class="fouli1 fouli">
+                <text>颜色：{{goodsDetail.Color}}</text>
+            </view>
+            <view class="fouli2 fouli">
+                <text>风格：{{goodsDetail.Style}}</text>
+            </view>
+            <view class="fouli3 fouli">
+                <text>国家：</text>
+                <image src="https://h5.beerqi.com/imgs/list/{{goodsDetail.Country}}.png" height="100%"></image>
+                <text>{{goodsDetail.Country}}</text>
+            </view>
+        </view>
+        <view class="third" bindtap="goDetail(item.Id,item.ProDtl)">
+            <view class="jjd">
+                <image src="https://h5.beerqi.com/imgs/jjd.png" height="100%"></image>
+                <text>{{goodsDetail.AlcoholContent}}</text>
+            </view>
+            <view class="rl">
+                <image src="https://h5.beerqi.com/imgs/rl.png" height="100%"></image>
+                <text>{{goodsDetail.Capacity}}</text>
+            </view>
+        </view>
+        <view class="fifth">
+            <view class="sales">
+                <view class="saleft">
+                    <view class="span1">
+                        <image src="https://h5.beerqi.com/imgs/sale.png" height="80%"></image>
+                    </view>
+                    <view class="firstspan" wx-if="{{!saleGoodsHaveBug}}">
+                        <view class="span2">
+                            <text style="letter-spacing: -1rpx">￥</text>
+                            <text style="font-size:30rpx;">{{goodsDetail.GroupBuyPrice}}</text>
+                            <text>.00</text>
+                            <text style="font-weight: 100;font-size: 25rpx;">/瓶</text>
+                        </view>
+                    </view>
+                    <view class="firstspan" wx-if="{{saleGoodsHaveBug}}">
+                        <view class="span2">
+                            <text style="letter-spacing: -1rpx">￥</text>
+                            <text style="font-size:30rpx;">{{goodsDetail.GroupBuyPrice}}</text>
+                            <text>.00</text>
+                            <text style="font-weight: 100;font-size: 25rpx;">/24瓶</text>
+                        </view>
+                    </view>
+                    <view class="secondspan">￥{{goodsDetail.SalePrice}}/瓶</view>
+                </view>
+                <view class="saright">
+                    <view class="saleFrist">距结束还剩:</view>
+                    <view class="saleSecond">
+                        {{salesList.t}}天
+                        <text>{{salesList.h}}</text>
+                        :
+                        <text>{{salesList.m}}</text>
+                        :
+                        <text>{{salesList.s}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 包邮 -->
+    <view class="baoyou">
+        <image src="https://h5.beerqi.com/imgs/baoyou.png" width="100%"></image>
+    </view>
+    <!-- 评论 -->
+    <view class="goodsComment">
+        <view class="first">
+            <view class="left">
+                <text>评价(1000+)</text>
+            </view>
+            <view class="right">
+                <text class="colspan">99%</text>
+                <text>好评</text>
+            </view>
+        </view>
+        <view class="goCoList">
+            <view wx:for="{{comment}}">
+                <view class="top">
+                    <view class="left">
+                        <view class="goTLFirst">
+                            <view class="left1">
+                                <image src="https://h5.beerqi.com/imgs/hy.png" width="100%"></image>
+                            </view>
+                            <view class="right1">
+                                <text>{{item.UserName}}</text>
+                            </view>
+                        </view>
+                        <view class="goTLSecond">
+                            <image src="https://h5.beerqi.com/imgs/pj1.png" width="100%"></image>
+                            <image src="https://h5.beerqi.com/imgs/pj2.png" width="100%"></image>
+                            <image src="https://h5.beerqi.com/imgs/pj3.png" width="100%"></image>
+                        </view>
+                    </view>
+                    <view class="right" style="text-align:right;">
+                        <image src="{{smallitem.PictureUrl}}" width="100%" wx:for='{{item.PicLists}}' wx:for-item="smallitem"></image>
+                    </view>
+                </view>
+                <view class="comment">
+                    <text>{{item.ComtComment}}</text>
+                </view>
+            </view>
+        </view>
+        <view>
+            <view class="clickAllCom" bindtap="commentFun">
+                <text>查看全部评论</text>
+            </view>
+        </view>
+    </view>
+    <!-- 详情 -->
+    <!-- <rich-text nodes="{{goodsDetail.ProDesc}}" bindtap="tap"></rich-text> -->
+    <!-- // 引入模板 -->
+    <import src="/wxParse/wxParse.wxml" />
+    <!-- //这里data中article为bindName -->
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    <view style="height:80rpx" wx:if="{{!isIphoneX}}"></view>
+    <view style="height:130rpx" wx:if="{{isIphoneX}}"></view>
+</scroll-view>
+<!-- 加载 -->
+<view class="myloading" wx:if="{{hasMore}}">
+    <image src="https://h5.beerqi.com/imgs/xiala.gif" width="100%"></image>
+</view>
+<!-- 底部购物车 -->
+<view class="detailFooter" style="z-index: 100;" wx:if="{{!isIphoneX}}">
+    <view class="left">
+        <navigator url="/pages/shopcar/shopcar" open-type="switchTab" hover-class="other-navigator-hover">
+            <view class="detailFooterSpan2" bindtap='goShopcar'>
+                <image src="https://h5.beerqi.com/imgs/detailShopcar.png" width="100%"></image>
+                <text>{{shopcarNum}}</text>
+            </view>
+        </navigator>
+    </view>
+    <view class="right">
+        <text class="joinShopCar" bindtap="joinShopCar">加入购物车</text>
+        <text class="goPay" bindtap="goPay">立即购买</text>
+        <view class="pay" bindtap="openChoiceType" wx-if="{{!showPay}}"></view>
+    </view>
+</view>
+<!-- 选择规格 -->
+<view class="detailChoiceGuige" wx:if="{{showPay&&!isIphoneX}}">
+    <view class="main">
+        <view class="close" bindtap='closeChoiceType'>
+            <image src="https://h5.beerqi.com/imgs/close.png" width="100%"></image>
+        </view>
+        <view class="left">
+            <view class="first">
+                <view class="chioceguige">
+                    <view wx:for="{{goodsDetail.ProDtl}}" bindtap='choiceTypeFun' data-item="{{item}}" data-index="{{index}}" class="{{index==attrValIndex?'active':''}}">
+                        {{item.AttrVal}}瓶
+                    </view>
+                </view>
+            </view>
+            <view class="second" wx-if="{{!isGoPayBol}}">
+                <text ng-show="numShowBol" style="color: #000">
+                    累计满
+                    <text style="color: red">6</text>
+                    瓶发货
+                </text>
+            </view>
+        </view>
+        <view class="right">
+            <view class="first">
+                <text>购买的数量：</text>
+                <text class="span1" bindtap='numDel'>-</text>
+                <text class="span2">{{goodsNum}}</text>
+                <text class="span3" bindtap='numAdd'>+</text>
+            </view>
+            <view class="second">
+                <text class="span1">小计：</text>
+                <text style="font-size: 28rpx">￥</text>
+                <text>{{goodsDetailPrice}}</text>
+                <text style="font-size: 28rpx">.00</text>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 满六提示弹框 -->
+<view class="popup popup1" wx-if="{{popupBol}}">
+    <image src="http://h5.beerqi.com/imgs/popup/4.png" mode="widthFix" />
+    <view bindtap="closePopup" class="close_popup"></view>
+</view>
+<!-- 成功提示弹框 -->
+<view class="popup popup1" wx-if="{{popupBol10}}">
+    <image src="http://h5.beerqi.com/imgs/popup/10.png" mode="widthFix" />
+    <view bindtap="closePopup" class="close_popup"></view>
+</view>
+<!-- 未登录提示弹框 -->
+<view class="popup popup1" wx-if="{{popupBol7}}">
+    <image src="http://h5.beerqi.com/imgs/popup/1.png" mode="widthFix" />
+    <view bindtap="closePopup1" class="close_popup"></view>
+</view>
+<!-- 适配iphoneX -->
+<!-- 底部购物车 -->
+<view class="detailFooter" wx:if="{{isIphoneX}}" style="height:120rpx">
+    <view class="left" style="height:120rpx">
+        <navigator url="/pages/shopcar/shopcar" open-type="switchTab" hover-class="other-navigator-hover">
+            <view class="detailFooterSpan2" bindtap='goShopcar'>
+                <image src="https://h5.beerqi.com/imgs/detailShopcar.png" width="100%"></image>
+                <text>{{shopcarNum}}</text>
+            </view>
+        </navigator>
+    </view>
+    <view class="right" style="height:120rpx">
+        <text class="joinShopCar" bindtap="joinShopCar" style="height:120rpx">加入购物车</text>
+        <text class="goPay" bindtap="goPay" style="height:120rpx">立即购买</text>
+        <view class="pay" bindtap="openChoiceType" wx-if="{{!showPay}}" style="height:120rpx"></view>
+    </view>
+</view>
+<!-- 选择规格 -->
+<view class="detailChoiceGuige" wx:if="{{showPay&&isIphoneX}}" style="bottom:120rpx">
+    <view class="main">
+        <view class="close" bindtap='closeChoiceType'>
+            <image src="https://h5.beerqi.com/imgs/close.png" width="100%"></image>
+        </view>
+        <view class="left">
+            <view class="first">
+                <view class="chioceguige">
+                    <view wx:for="{{goodsDetail.ProDtl}}" bindtap='choiceTypeFun' data-item="{{item}}" data-index="{{index}}" class="{{index==attrValIndex?'active':''}}">
+                        {{item.AttrVal}}瓶
+                    </view>
+                </view>
+            </view>
+            <view class="second" wx-if="{{!isGoPayBol}}">
+                <text ng-show="numShowBol" style="color: #000">
+                    累计满
+                    <text style="color: red">6</text>
+                    瓶发货
+                </text>
+            </view>
+        </view>
+        <view class="right">
+            <view class="first">
+                <text>购买的数量：</text>
+                <text class="span1" bindtap='numDel'>-</text>
+                <text class="span2">{{goodsNum}}</text>
+                <text class="span3" bindtap='numAdd'>+</text>
+            </view>
+            <view class="second">
+                <text class="span1">小计：</text>
+                <text style="font-size: 28rpx">￥</text>
+                <text>{{goodsDetailPrice}}</text>
+                <text style="font-size: 28rpx">.00</text>
+            </view>
+        </view>
+    </view>
+</view>

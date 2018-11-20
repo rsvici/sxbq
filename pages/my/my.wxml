@@ -1,0 +1,81 @@
+<!-- pages/mine/mine.wxml -->
+<view class="myWeb">
+    <view class="masterMy">
+        <image wx-if="{{isMember}}" src="http://h5.beerqi.com/imgs/masterRound.png" bindtap="open_Popup"></image>
+        <navigator url="../member/member" hover-class="none">
+            <image wx-if="{{!isMember}}" src="http://h5.beerqi.com/imgs/masterFalse.png"></image>
+        </navigator>
+        <view>{{masterTime}}</view>
+    </view>
+    <view class="first">
+        <!-- <image wx-if="{{vipInfo[0].WxHeadImg}}" src="{{vipInfo.WxHeadImg}}"></image> -->
+        <view class="pic">
+            <open-data type="userAvatarUrl"></open-data>
+        </view>
+         <image wx-if="{{isMember}}" src="http://h5.beerqi.com/imgs/hat.png"></image>
+    </view>
+    <view class="second">
+        <navigator url="../bindphone/bindphone" hover-class="none">
+            <text>{{vipInfo[0].NickName}}</text>
+        </navigator>
+    </view>
+    <view class="third">
+        <navigator url="../explain/explain?choiceNum=1" hover-class="none">
+            <text>{{vipInfo[0].CapCash}}  瓶盖  /  {{vipInfo[0].MyFocusCount}}  关注  /  {{vipInfo[0].FocusMeCount}}  粉丝</text>
+        </navigator>
+    </view>
+    <view class="fouth">
+        <navigator url="../explain/explain?choiceNum=0" hover-class="none">
+            <text>啤气值 ：{{vipInfo[0].Bouns}}  距{{vipInfo[0].LeftUpGradeName}}还差 ：{{vipInfo[0].LeftUpGradeBouns}}</text>
+        </navigator>
+    </view>
+    <view class="fixleft">
+        <navigator url="../explain/explain?choiceNum=2" hover-class="none">
+            {{vipInfo[0].GradeName}}
+        </navigator>
+    </view>
+</view>
+<view class="tel" wx-if="{{isShowVipId}}" data-statu="open">
+    <navigator url="../bindphone/bindphone" hover-class="none">
+        <image src="https://h5.beerqi.com/imgs/my/tel.jpg"></image>
+    </navigator>
+</view>
+<view class="mybox">
+    <view class="first">
+        <navigator url="../order/order?orderstatus=1" hover-class="none">
+            <image src="https://h5.beerqi.com/imgs/my/order.png"></image>
+        </navigator>
+    </view>
+    <view class="second">
+        <navigator url="../box/box" hover-class="none">
+            <view class="t1 order" wx:if="{{!hasBeerBox}}">
+                <image src="https://h5.beerqi.com/imgs/my/t4.jpg"></image>
+            </view>
+            <view class="t1 order" wx:if="{{hasBeerBox}}">
+                <image src="https://h5.beerqi.com/imgs/my/t6.jpg"></image>
+            </view>
+        </navigator>
+        <view class="t2 order" bindtap="address">
+            <image src="https://h5.beerqi.com/imgs/my/t0.jpg"></image>
+        </view>
+        <navigator url="../order/order?orderstatus=2" hover-class="none">
+            <view class="t3 order">
+                <image src="https://h5.beerqi.com/imgs/my/t1.jpg"></image>
+            </view>
+        </navigator>
+        <navigator url="../order/order?orderstatus=3" hover-class="none">
+            <view class="t4 order">
+                <image src="https://h5.beerqi.com/imgs/my/t2.jpg"></image>
+            </view>
+        </navigator>
+    </view>
+</view>
+<!-- 客服 -->
+<button open-type="contact" class="kefu" session-from="微信小程序"></button>
+
+
+<!-- 商品缺货提示弹框 -->
+<view class="popup popup1" wx-if="{{popupBol22}}">
+    <image src="http://h5.beerqi.com/imgs/popup/22.png" mode="widthFix" />
+    <view bindtap="close_popup" class="close_popup"></view>
+</view>

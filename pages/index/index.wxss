@@ -1,0 +1,710 @@
+/* 标题 */
+
+.shouye {
+    background-color: #f5f5f5;
+}
+
+.tab-h {
+    height: 6.5vh;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    line-height: 6.5vh;
+    background: #000;
+    font-size: 16px;
+    white-space: nowrap;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.tab-item {
+    /* margin: 0 36rpx; */
+    font-size: 25rpx;
+    display: inline-block;
+    width: 150rpx;
+    text-align: center;
+    color: #eee;
+    position: relative;
+}
+
+.tab-item form {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.tab-item button {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    opacity: 0;
+    border-radius: 0;
+}
+
+.tab-item.active {
+    color: #eee;
+    position: relative;
+}
+
+.tab-item.active1 {
+    color: #886D4C;
+    position: relative;
+}
+
+.tab-item.active:after {
+    content: "";
+    display: block;
+    height: 2rpx;
+    width: 60rpx;
+    margin-left: 39rpx;
+    background: #eee;
+    position: absolute;
+    bottom: 10rpx;
+    left: 7rpx;
+    border-radius: 16rpx;
+}
+
+.tab-item.active1:after {
+    content: "";
+    display: block;
+    height: 4rpx;
+    width: 100rpx;
+    margin-left: 20rpx;
+    background: #886D4C;
+    position: absolute;
+    bottom: 10rpx;
+    left: 5rpx;
+    border-radius: 16rpx;
+}
+
+.shouye .tab-item image {
+    width: 102rpx;
+    height: 30rpx;
+}
+
+
+/* 商品内容  */
+
+.tab-content {
+    height: 100%;
+}
+
+.goodsList {
+    height: 100%;
+    width: 100%;
+    padding: 0 25rpx;
+    background-color: #f5f5f5;
+    margin-top: 6.5vh;
+}
+
+
+/* 搜索筛选 */
+
+.choice {
+    /* margin-top: 80rpx; */
+    background-color: #f5f5f5;
+    position: fixed;
+    top: 0rpx;
+    left: 0rpx;
+    width: 100%;
+    overflow: hidden;
+    z-index: 10;
+    box-sizing: border-box;
+    height: 138rpx;
+}
+
+.choice .choiceTop {
+    height: 50rpx;
+    /*overflow: hidden;*/
+    width: 710rpx;
+    padding: 20rpx;
+    background-color: #ebebeb;
+}
+
+.choice .choiceTop form {
+    width: 80%;
+    background-color: #fff;
+    border-radius: 5px;
+    height: 50rpx;
+    float: left;
+    text-align: center;
+    padding-left: 5vw;
+    margin-left: 2%;
+    position: relative;
+}
+
+.choice .choiceTop form image {
+    display: block;
+    height: 32rpx;
+    width: 32rpx;
+    position: absolute;
+    top: 10rpx;
+    left: 150rpx;
+}
+
+.choice .choiceTop form input {
+    display: block;
+    margin-left: 180rpx;
+    height: 50rpx;
+    padding: 0;
+    line-height: 50rpx;
+    caret-color: rgb(170, 20, 20);
+    font-size: 22rpx;
+    font-family: PingFangSC-Regular;
+    color: #666;
+    text-align: left;
+}
+
+.choice .choiceTop form input::-webkit-input-placeholder {
+    font-size: 22rpx;
+    font-family: PingFangSC-Regular;
+    line-height: 50rpx;
+}
+
+.choice .choiceTop .choiceKf button {
+    display: block;
+    float: right;
+    height: 45rpx;
+    width: 45rpx;
+    margin-top: 5rpx;
+    margin-right: 10rpx;
+    background-image: url('https://h5.beerqi.com/imgs/csr.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    background-color: transparent;
+}
+
+.choice .choiceTop .choiceKf button::after {
+    border: none;
+}
+
+.choice .choiceTop .choiceKf button.button-hover {
+    background-color: transparent;
+}
+
+.choice .choicefotter {
+    width: 94%;
+    height: 50rpx;
+}
+
+.choice .choicefotter view {
+    height: 50rpx;
+    width: 25%;
+    float: left;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+.choice .choicefotter view text {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 22rpx;
+    color: #000;
+    letter-spacing: 2rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    overflow: hidden;
+    font-family: PingFangSC-Regular;
+}
+
+.choice .choicefotter view text.active {
+    color: #967800;
+}
+
+.goodsList .scoll-h {
+    height: 84%;
+    margin-top: 130rpx;
+}
+
+.goodsList .goodsListPadding {
+    box-sizing: border-box;
+    float: left;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 15rpx;
+    padding: 0rpx 20rpx 20rpx;
+    width: 340rpx;
+    margin-top: 25rpx;
+}
+
+.goodsList .goodsListPadding:nth-of-type(2n) {
+    margin-left: 25rpx;
+}
+
+.goodsList .goodsListPadding .left {
+    width: 300rpx;
+}
+
+.goodsList .goodsListPadding .left image {
+    width: 300rpx;
+    height: 300rpx;
+}
+
+.goodsList .goodsListPadding .right {
+    box-sizing: border-box;
+    width: 320rpx;
+    position: relative;
+}
+
+.goodsList .goodsListPadding .right text {
+    margin: 0px;
+}
+
+.goodsList .goodsListPadding .right .first {
+    line-height: 50rpx;
+    height: 50rpx;
+}
+
+.goodsList .goodsListPadding .right .first .name {
+    display: inline-block;
+    font-size: 30rpx;
+    color: #323232;
+    font-family: PingFangSC-Regular;
+    height: 40rpx;
+    line-height: 38rpx;
+    margin: 10rpx 0 0;
+    width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.goodsList .goodsListPadding .right .first .country-img {
+    float: right;
+    display: block;
+    height: 30rpx;
+    width: 30rpx;
+    /* margin: 10rpx 0 0; */
+    margin-right: 30rpx;
+}
+
+.goodsList .goodsListPadding .right .first .country-img image {
+    width: 100%;
+    height: 100%;
+}
+
+.goodsList .goodsListPadding .right .second {
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.goodsList .goodsListPadding .right .second .prod-desc {
+    display: inline-block;
+    font-size: 23rpx;
+    color: #adadad;
+    font-family: PingFangSC-Regular;
+    height: 40rpx;
+    line-height: 40rpx;
+    width: 90%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.goodsList .goodsListPadding .right .third {
+    overflow: hidden;
+    height: 62rpx;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e5e5e5;
+    width: 94%;
+    margin-top: 1rpx;
+}
+
+.goodsList .goodsListPadding .right .third .jjd {
+    float: left;
+    width: 50%;
+}
+
+.goodsList .goodsListPadding .right .third .rl {
+    float: left;
+    /*margin-left: 6vw;*/
+    width: 50%;
+}
+
+.goodsList .goodsListPadding .right .third image {
+    vertical-align: middle;
+    margin-right: 8rpx;
+}
+
+.goodsList .goodsListPadding .right .third text {
+    display: inline-block;
+    height: 50rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    color: #111111;
+    line-height: 50rpx;
+}
+
+.goodsList .goodsListPadding .right .third .jjd image {
+    width: 25rpx;
+    height: 40rpx;
+}
+
+.goodsList .goodsListPadding .right .third .rl image {
+    width: 22rpx;
+    height: 40rpx;
+}
+
+.goodsList .goodsListPadding .right .fouth {
+    height: 50rpx;
+    line-height: 55rpx;
+}
+
+.goodsList .goodsListPadding .right .fouth image {
+    width: 33rpx;
+    height: 30rpx;
+}
+
+.goodsList .goodsListPadding .right .fouth text {
+    font-family: PingFangSC-Regular;
+    font-size: 25rpx;
+    color: #967800;
+    height: 30rpx;
+    width: 50%;
+}
+
+.goodsList .goodsListPadding .right .fifth {
+    height: 30rpx;
+    line-height: 20rpx;
+    text-align: left;
+}
+
+.goodsList .goodsListPadding .right .fifth text {
+    font-family: PingFangSC-Regular;
+    font-size: 20rpx;
+    color: #000;
+}
+
+.goodsList .goodsListPadding .right .spsc {
+    position: absolute;
+    right: 100rpx;
+    bottom: 10rpx;
+}
+
+.goodsList .goodsListPadding .right .spsc image {
+    width: 43rpx;
+    height: 40rpx;
+}
+
+.goodsList .goodsListPadding .right .goodsJoinShopcar {
+    position: absolute;
+    right: 30rpx;
+    bottom: 10rpx;
+}
+
+.goodsList .goodsListPadding .right .goodsJoinShopcar image {
+    width: 41rpx;
+    height: 40rpx;
+}
+
+
+/* 国家 */
+
+.index-list {
+    height: 100%;
+    width: 100%;
+    background-color: #f5f5f5;
+    padding-top: 6.5vh;
+    overflow-y: hidden;
+}
+
+.index-list .choice {
+    height: 6.5vh;
+}
+
+.index-list .index-list-left {
+    width: 150rpx;
+    margin-top: 6.5vh;
+    height: 87%;
+    overflow: hidden;
+    float: left;
+    background-color: #f5f5f5;
+    text-align: center;
+    padding-bottom: 50rpx;
+}
+
+.index-list .index-list-left .index-list-view {
+    width: 100%;
+    height: 120rpx;
+    padding-top: 10rpx;
+}
+
+.index-list .index-list-left .index-list-view.active {
+    background-color: #fff;
+}
+
+.index-list .index-list-left .index-list-view .top {
+    width: 66rpx;
+    height: 66rpx;
+    background-color: #ccc;
+    margin: 0 auto;
+    border-radius: 33rpx;
+}
+
+.index-list .index-list-left .index-list-view .top image {
+    width: 66rpx;
+    height: 66rpx;
+}
+
+.index-list .index-list-left .index-list-view text {
+    font-size: 25rpx;
+    font-family: STSong;
+}
+
+
+/* 右边 */
+
+.index-list .index-list-right {
+    width: 600rpx;
+    margin-top: 6.5vh;
+    height: 87%;
+    float: left;
+    background-color: #fff;
+    text-align: center;
+}
+
+.index-list .index-list-right .index-list-view {
+    width: 160rpx;
+    margin: 0 20rpx;
+    float: left;
+}
+
+.index-list .index-list-right .index-list-view .top {
+    margin-bottom: -20rpx;
+}
+
+.index-list .index-list-right .index-list-view image {
+    width: 160rpx;
+    height: 160rpx;
+}
+
+.index-list .index-list-right .index-list-view text {
+    font-size: 22rpx;
+}
+
+
+/* 推荐  套装 */
+
+.recommend {
+    height: 100%;
+    width: 100%;
+    background-color: #f5f5f5;
+    padding-top: 6.5vh;
+}
+
+.recommend .scoll-h {
+    height: 95%;
+}
+
+.recommend .scoll-h .recommend-view {
+    width: 750rpx;
+    margin-top: -15rpx;
+}
+
+.recommend .scoll-h image {
+    width: 750rpx;
+}
+
+
+/* 秒杀 */
+
+.salesList {
+    width: 100%;
+}
+
+.salesList .scoll-h {
+    height: 94%;
+    margin-top: 6.5vh;
+    padding-left: 25rpx;
+}
+
+.salesList .goodsListPadding {
+    box-sizing: border-box;
+    float: left;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 15rpx;
+    width: 340rpx;
+    margin-top: 25rpx;
+}
+
+.salesList .goodsListPadding:nth-of-type(2n) {
+    margin-left: 25rpx;
+}
+
+.salesList .goodsListPadding .left {
+    height: 340rpx;
+    width: 340rpx;
+}
+
+.salesList .goodsListPadding .left image {
+    width: 340rpx;
+    height: 340rpx;
+}
+
+.salesList .goodsListPadding .right {
+    box-sizing: border-box;
+    width: 340rpx;
+    position: relative;
+}
+
+.salesList .goodsListPadding .right text {
+    margin: 0px;
+}
+
+.salesList .goodsListPadding .right .first .name {
+    display: inline-block;
+    font-size: 30rpx;
+    color: #323232;
+    font-family: PingFangSC-Regular;
+    height: 30rpx;
+    line-height: 30rpx;
+    margin: 20rpx;
+    margin-bottom: 10rpx;
+    width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* 秒杀框 */
+
+.sales {
+    height: 60rpx;
+    width: 340rpx;
+    bottom: 0;
+    left: 0;
+    opacity: 0.9;
+    overflow: hidden;
+}
+
+.sales .saleft {
+    background-color: rgb(249, 157, 28);
+    float: left;
+    width: 190rpx;
+    height: 60rpx;
+    /* overflow: hidden; */
+}
+
+.sales .saleft .span1 {
+    display: block;
+    height: 60rpx;
+    line-height: 60rpx;
+    padding: 10rpx 0 0 10rpx;
+    width: 50rpx;
+    float: left;
+}
+
+.sales .saleft .span1 image {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.sales .saleft .span2 {
+    float: left;
+    display: block;
+    height: 60rpx;
+    line-height: 60rpx;
+    width: 125rpx;
+    overflow: hidden;
+}
+
+.sales .saleft .span2 view {
+    height: 60rpx;
+    line-height: 65rpx;
+    color: #fff;
+    font-family: Arial;
+    font-weight: 600;
+    font-size: 22rpx;
+    width: 125rpx;
+}
+
+.sales .saright {
+    background: -webkit-linear-gradient(left, #fff7ed, #ffeac6);
+    float: right;
+    height: 60rpx;
+    width: 150rpx;
+    padding-bottom: 0.5vw;
+}
+
+.sales .saright .saleFrist {
+    height: 30rpx;
+    width: 140rpx;
+    line-height: 30rpx;
+    font-size: 18rpx;
+    color: #f99d1c;
+    text-align: center;
+}
+
+.sales .saright .saleSecond {
+    text-align: center;
+    font-family: Arial;
+    color: #f99d1c;
+    font-size: 18rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+    width: 100%;
+}
+
+.sales .saright .saleSecond text {
+    background-color: #f99d1c;
+    display: inline-block;
+    padding: 0 4rpx;
+    line-height: 35rpx;
+    height: 30rpx;
+    border-radius: 10rpx;
+    color: #fff;
+}
+
+
+/* 活动 */
+
+.beerqi_activity {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.beerqi_activity .swiper {
+    position: absolute;
+    top: 170rpx;
+    /* left: 95rpx; */
+    width: 750rpx;
+    z-index: 2;
+    height: 100vh;
+    /* background-color: rgba(255, 255, 255, .2); */
+    /* border-radius: 20rpx; */
+}
+
+.beerqi_activity .swiper swiper-item {
+    text-align: center;
+}
+
+.beerqi_activity .swiper image {
+    width: 80%;
+    margin-left: 20rpx;
+}
+
+.beerqi_activity .close_bqact {
+    width: 150rpx;
+    height: 120rpx;
+    position: absolute;
+    z-index: 3;
+    top: 180rpx;
+    right: 105rpx;
+}
+
+.beerqi_activity .close_bqact button {
+    width: 150rpx;
+    height: 120rpx;
+    opacity: 0;
+}

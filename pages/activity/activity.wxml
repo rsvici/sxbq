@@ -1,0 +1,17 @@
+<!-- <view>
+    <image class="img1" src="http://h5.beerqi.com/imgs/activity/1.jpg" alt="" mode="widthFix"></image>
+    <image class="img2" src="http://h5.beerqi.com/imgs/activity/2.jpg" alt="" bindtap="goDetail" mode="widthFix"></image>
+    <image class="img3" src="http://h5.beerqi.com/imgs/activity/3.jpg" alt="" mode="widthFix"></image>
+    <image class="img4" src="http://h5.beerqi.com/imgs/activity/4.jpg" alt="" bindtap="goDetail" mode="widthFix"></image>
+    <image class="img5" src="http://h5.beerqi.com/imgs/activity/5.jpg" alt="" mode="widthFix"></image>
+    <image class="img6" src="http://h5.beerqi.com/imgs/activity/6.jpg" alt="" bindtap="goDetail" mode="widthFix"></image>
+    <image class="img7" src="http://h5.beerqi.com/imgs/activity/7.jpg" alt="" mode="widthFix"></image>
+</view>      -->
+<view>
+    <image class="img1" src="http://h5.beerqi.com/imgs/updata/0905/1.jpg" alt="" mode="widthFix" bindtap="goDetail"></image>
+    <image class="img1" src="http://h5.beerqi.com/imgs/updata/0905/2.jpg" alt="" mode="widthFix" bindtap="goDetail"></image>
+    <image class="img1" src="http://h5.beerqi.com/imgs/updata/0905/3.jpg" alt="" mode="widthFix" bindtap="goDetail"></image>
+    <image class="img1" src="http://h5.beerqi.com/imgs/updata/0905/4.jpg" alt="" mode="widthFix" bindtap="goDetail"></image>
+    <image class="img1" src="http://h5.beerqi.com/imgs/updata/0905/5.jpg" alt="" mode="widthFix" bindtap="goDetail"></image>
+    <!-- <image class="img1" src="http://h5.beerqi.com/imgs/updata/0824/6.jpg" alt="" mode="widthFix" bindtap="goDetail"></image> -->
+</view> 

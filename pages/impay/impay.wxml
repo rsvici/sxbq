@@ -1,0 +1,89 @@
+<scroll-view class="gopayContent">
+    <!-- 普通商品 -->
+    <view class="list second" wx:for="{{normalGoods}}">
+        <view class="imgages">
+            <image class="navimg" src="{{item.Url}}"></image>
+        </view>
+    </view>
+    <!-- 会员权益 -->
+    <view class="list  hyqy" wx:for="{{normalGoods}}">
+        <view class="imgages">
+            <image class="navimg" src="http://h5.beerqi.com/imgs/updata/member/hyqy.png" mode="widthFix"></image>
+        </view>
+    </view>
+    <!-- 金额 -->
+    <view class="list third">
+        <view class="ul ">
+            <view class="li">
+                <view class="left">商品总金额</view>
+                <view class="right"><text class="span1">￥</text>{{allMoney}}</view>
+            </view>
+            <view class="li2 li">
+                <view class="left" wx-if="{{!isBeerQiTiyanka}}">运费</view>
+                <view class="right"><text class="span1">￥</text>00<text>.00</text></view>
+            </view>
+            <view class="li3 li">
+                <view class="left">实际应付</view>
+                <view class="right"><text class="span1">￥</text>{{allMoney}}</view>
+            </view>
+        </view>
+    </view>
+
+
+    <!-- 适配iphonex -->
+    <view style="height:100rpx;" >
+    </view>
+</scroll-view>
+
+<!-- 底部结算 -->
+<view class="shopcarFooter" style="height:80rpx" wx:if="{{!isIphoneX}}">
+    <view class="center">
+        <view class="first" style="height:80rpx;line-height:80rpx">
+            <text class="span1">总计:</text><text style="font-size: 30rpx;">￥</text><text>{{allMoney}}</text><text style="font-size: 30rpx;"></text>
+        </view>
+    </view>
+    <view class="right" bindtap="goPay" style="height:80rpx;line-height:80rpx">
+        <text class="goPay">确认加入</text>
+    </view>
+</view>
+
+
+<!-- 底部结算 -->
+<view class="shopcarFooter" style="height:130rpx" wx:if="{{isIphoneX}}">
+    <view class="center">
+        <view class="first" style="height:130rpx;line-height:90rpx">
+            <text class="span1">总计:</text><text style="font-size: 30rpx;">￥</text><text>{{allMoney}}</text><text style="font-size: 30rpx;"></text>
+        </view>
+    </view>
+    <view class="right" bindtap="goPay" style="height:130rpx;line-height:90rpx">
+        <text class="goPay">确认加入</text>
+    </view>
+</view>
+
+<!-- 加载 -->
+<view class="fullloading" wx:if="{{hasMore}}">
+    <image src="https://h5.beerqi.com/imgs/xiala.gif" width="100%"></image>
+</view>
+
+<!-- 地址提示弹框 -->
+<view class="popup popup1" wx-if="{{popupBol11}}">
+    <image src="http://h5.beerqi.com/imgs/popup/11.png" mode="widthFix" />
+    <view bindtap="closePopup" class="close_popup">
+    </view>
+</view>
+
+
+
+<!-- 优惠商品不可使用优惠券 -->
+<view class="popup popup5" wx-if="{{popupBol2}}">
+    <image src="http://h5.beerqi.com/imgs/popup/2.png" mode="widthFix" />
+    <view bindtap="closePopup" class="close_popup">
+    </view>
+</view>
+
+<!-- 价格未满足条件 -->
+<view class="popup popup5" wx-if="{{popupBol8}}">
+    <image src="http://h5.beerqi.com/imgs/popup/8.png" mode="widthFix" />
+    <view bindtap="closePopup" class="close_popup">
+    </view>
+</view>

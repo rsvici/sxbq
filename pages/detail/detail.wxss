@@ -1,0 +1,613 @@
+@import "/wxParse/wxParse.wxss";
+
+/* 图片 */
+
+.topBorder {
+    border-top: 2rpx solid #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 750rpx;
+    z-index: 10;
+}
+
+.detail {
+    width: 100%;
+    background-color: #f5f5f5;
+}
+
+swiper {
+    height: 750rpx;
+}
+
+swiper-item image {
+    width: 750rpx;
+    height: 750rpx;
+}
+
+
+/* 加载 */
+
+.myloading {
+    width: 725rpx;
+    height: 200rpx;
+    text-align: center;
+    margin-top: 400rpx;
+}
+
+.myloading image {
+    width: 120rpx;
+    height: 80rpx;
+}
+
+
+/* 详情属性 */
+
+.detailList {
+    height: 320rpx;
+    margin: 0;
+    padding-top: 20rpx;
+}
+
+.detailList .first {
+    height: 50rpx;
+    text-align: center;
+    overflow: hidden;
+}
+
+.detailList .first text {
+    font-size: 26rpx;
+    color: #323232;
+    letter-spacing: 1rpx;
+    font-family: PingFangSC-Regular;
+    height: 50rpx;
+    line-height: 50rpx;
+    width: 100%;
+}
+
+.detailList .second {
+    height: 50rpx;
+    text-align: center;
+    line-height: 50rpx;
+    overflow: hidden;
+}
+
+.detailList .second text {
+    font-size: 22rpx;
+    color: #adadad;
+    font-family: PingFangSC-Regular;
+    height: 50rpx;
+    line-height: 50rpx;
+    width: 100%;
+}
+
+.detailList .third {
+    overflow: hidden;
+    height: 55rpx;
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.detailList .third .jjd {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+.detailList .third .rl {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+.detailList .third image {
+    vertical-align: middle;
+    margin-right: 8rpx;
+}
+
+.detailList .third text {
+    display: inline-block;
+    height: 50rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    color: #111111;
+    line-height: 50rpx;
+}
+
+.detailList .third .jjd image {
+    width: 25rpx;
+    height: 40rpx;
+}
+
+.detailList .third .rl image {
+    width: 22rpx;
+    height: 40rpx;
+}
+
+.detailList .fouth {
+    width: 100%;
+    margin-top: 15rpx;
+    height: 50rpx;
+    line-height: 60rpx;
+    overflow: hidden;
+}
+
+.detailList .fouth .fouli {
+    width: 30%;
+    text-align: center;
+    float: left;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.detailList .fouth .fouli3 {
+    width: 40%;
+}
+
+.detailList .fouth .fouli text {
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    display: block;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.detailList .fouth .fouli3 text {
+    float: left;
+}
+
+.detailList .fouth .fouli3 image {
+    width: 30rpx;
+    height: 30rpx;
+    border-radius: 15rpx;
+    margin-right: 5rpx;
+    display: block;
+    margin-top: 12rpx;
+    float: left;
+}
+
+.detailList .fifth {
+    width: 100%;
+    height: 100rpx;
+}
+
+.detailList .fifth .fouth1 {
+    height: 50rpx;
+    text-align: center;
+    line-height: 45rpx;
+}
+
+.detailList .fifth .fouth1 image {
+    width: 33rpx;
+    height: 30rpx;
+}
+
+.detailList .fifth .fouth1 text {
+    font-family: PingFangSC-Regular;
+    font-size: 25rpx;
+    color: #967800;
+    height: 30rpx;
+    width: 50%;
+}
+
+.detailList .fifth .fifth1 {
+    height: 40rpx;
+    line-height: 30rpx;
+    text-align: center;
+}
+
+.detailList .fifth .fifth1 text {
+    font-family: PingFangSC-Regular;
+    font-size: 20rpx;
+    color: #000;
+}
+
+
+/* 包邮 */
+
+.baoyou {
+    width: 100%;
+    height: 77rpx;
+}
+
+.baoyou image {
+    width: 100%;
+    height: 62rpx;
+}
+
+
+/* 评论 */
+
+.goodsComment {
+    background-color: #fff;
+    margin-top: 10rpx;
+}
+
+.goodsComment .first {
+    height: 60rpx;
+    overflow: hidden;
+    padding: 0px 3vw;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.goodsComment .first text {
+    font-family: PingFangSC-Regular;
+    font-size: 25rpx;
+    display: inline-block;
+    height: 60rpx;
+    line-height: 60rpx;
+    letter-spacing: 1rpx;
+}
+
+.goodsComment .first .left {
+    float: left;
+    height: 60rpx;
+}
+
+.goodsComment .first .right {
+    float: right;
+    height: 60rpx;
+}
+
+.goodsComment .first .right .colspan {
+    color: #aa821e;
+}
+
+.goodsComment .goCoList {
+    padding: 2vh 3vw;
+}
+
+.goodsComment .goCoList .top {
+    overflow: hidden;
+    height: 20vw;
+}
+
+.goodsComment .goCoList .top .left {
+    float: left;
+    width: 35vw;
+}
+
+.goodsComment .goCoList .top .left .goTLFirst {
+    overflow: hidden;
+}
+
+.goodsComment .goCoList .top .left .goTLFirst .left1 {
+    float: left;
+    width: 10vw;
+    height: 10vw;
+    border: 1px solid #ededed;
+    border-radius: 5vw;
+    overflow: hidden;
+}
+
+.goodsComment .goCoList .top .left .goTLFirst .left1 image {
+    width: 10vw;
+    height: 10vw;
+}
+
+.goodsComment .goCoList .top .left .goTLFirst .right1 {
+    float: left;
+    width: 21vw;
+    height: 10vw;
+    line-height: 10vw;
+    padding-left: 2vw;
+    font-family: PingFangSC-Regular;
+    font-size: 25rpx;
+    overflow: hidden;
+}
+
+.goodsComment .goCoList .top .left .goTLSecond {
+    margin-top: 10rpx;
+}
+
+.goodsComment .goCoList .top .left .goTLSecond image {
+    display: inline-block;
+    font-family: PingFangSC-Regular;
+    font-size: 1rem;
+    color: #838383;
+    height: 5vw;
+    width: 5vw;
+    margin-right: 2vw;
+    letter-spacing: 0.05rem;
+}
+
+.goodsComment .goCoList .top .right {
+    width: 58vw;
+    height: 20vw;
+    float: right;
+}
+
+.goodsComment .goCoList .top .right image {
+    display: inline-block;
+    width: 18vw;
+    height: 18vw;
+}
+
+.goodsComment .goCoList .comment {
+    min-height: 10vw;
+    line-height: 40rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 25rpx;
+    margin: 0 0 4vw;
+}
+
+.goodsComment .clickAllCom {
+    height: 10vw;
+    text-align: center;
+    margin-bottom: 2vw;
+}
+
+.goodsComment .clickAllCom text {
+    display: inline-block;
+    border: 1px solid #000;
+    box-sizing: content-box;
+    padding: 0px 4vw;
+    height: 8vw;
+    line-height: 8vw;
+    font-family: PingFangSC-Regular;
+    font-size: 25rpx;
+    color: #000;
+    letter-spacing: 0.02rem;
+}
+
+
+/* 商品详情 */
+
+.wxParse-p {
+    margin-top: 20rpx;
+}
+
+.wxParse-p image {
+    display: block;
+    margin: 0;
+    padding: 0;
+    margin-top: -0.5rpx;
+}
+
+
+/*底部购物车*/
+
+.detailFooter {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 70rpx;
+    border-top: 1px solid #c8c8c8;
+    z-index: 100;
+}
+
+.detailFooter .left {
+    float: left;
+    width: 45%;
+    height: 70rpx;
+    background-color: #fff;
+    text-align: left;
+    line-height: 70rpx;
+}
+
+.detailFooter .left .detailFooterSpan2 {
+    margin-left: 5vw;
+    position: relative;
+}
+
+.detailFooter .left .detailFooterSpan2 image {
+    display: block;
+    width: 50rpx;
+    height: 50rpx;
+    margin-top: 10rpx;
+}
+
+.detailFooter .left .detailFooterSpan2 text {
+    position: absolute;
+    top: 8%;
+    left: 30rpx;
+    width: 35rpx;
+    height: 35rpx;
+    border-radius: 30rpx;
+    background-color: #ffe900;
+    color: #000;
+    text-align: center;
+    line-height: 35rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 22rpx;
+    overflow: hidden;
+}
+
+.detailFooter .right {
+    float: right;
+    width: 55%;
+    height: 70rpx;
+    position: relative;
+}
+
+.detailFooter .right .pay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 70rpx;
+}
+
+.detailFooter .right text {
+    width: 50%;
+    display: block;
+    height: 70rpx;
+    line-height: 70rpx;
+    font-size: 30rpx;
+    font-family: PingFangSC-Regular;
+    text-align: center;
+    letter-spacing: 0.05rem;
+    color: #000;
+}
+
+.detailFooter .right .joinShopCar {
+    float: left;
+    background-color: #ffe600;
+}
+
+.detailFooter .right .goPay {
+    float: right;
+    background-color: #aa821e;
+}
+
+
+/*选择规格*/
+
+.detailChoiceGuige {
+    position: fixed;
+    bottom: 70rpx;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    /* display: none; */
+}
+
+.detailChoiceGuige .main {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /*height: 16vh;*/
+    background-color: #fff;
+}
+
+.detailChoiceGuige .main .close {
+    position: absolute;
+    right: 2vw;
+    top: 2vw;
+    width: 4vw;
+}
+
+.detailChoiceGuige .main .close image {
+    width: 4vw;
+    height: 4vw;
+}
+
+.detailChoiceGuige .main .left {
+    float: left;
+    width: 40%;
+    margin-left: 4%;
+    /*height: 15vh;*/
+}
+
+.detailChoiceGuige .main .left .first {
+    width: 100%;
+    margin-top: 40rpx;
+    /*height: 5.5vh;	*/
+}
+
+.detailChoiceGuige .main .left .first .chioceguige {
+    overflow: hidden;
+    padding-bottom: 1vw;
+    /*height: 5.5vh;*/
+}
+
+.detailChoiceGuige .main .left .first .chioceguige view {
+    display: inline-block;
+    width: 28%;
+    margin-right: 2%;
+    border: 1px solid #000;
+    height: 40rpx;
+    line-height: 40rpx;
+    text-align: center;
+    font-size: 25rpx;
+    font-family: PingFangSC-Regular;
+}
+
+.detailChoiceGuige .main .left .first .chioceguige view.active {
+    border-color: #aa821e;
+    color: #aa821e;
+}
+
+.detailChoiceGuige .main .left .second {
+    color: red;
+    font-size: 23rpx;
+    font-family: PingFangSC-Regular;
+    overflow: hidden;
+    height: 4vh;
+    line-height: 3vh;
+}
+
+.detailChoiceGuige .main .right {
+    float: right;
+    width: 50%;
+    margin-right: 4%;
+    height: 170rpx;
+}
+
+.detailChoiceGuige .main .right .first {
+    width: 100%;
+    margin-top: 30rpx;
+    height: 80rpx;
+}
+
+.detailChoiceGuige .main .right .first text {
+    display: inline-block;
+    font-size: 25rpx;
+    color: #323232;
+    font-family: PingFangSC-Regular;
+    height: 40rpx;
+    line-height: 0vh;
+}
+
+.detailChoiceGuige .main .right .first .span1 {
+    color: #d3d3d3;
+    font-size: 40rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.detailChoiceGuige .main .right .first .span2 {
+    width: 50rpx;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+    font-size: 25rpx;
+    margin: 0 20rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.detailChoiceGuige .main .right .first .span3 {
+    color: #d3d3d3;
+    font-size: 40rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.detailChoiceGuige .main .right .second {
+    height: 80rpx;
+    margin-top: -30rpx;
+}
+
+.detailChoiceGuige .main .right .second .fouth1 {
+    height: 40rpx;
+    text-align: left;
+    line-height: 30rpx;
+}
+
+.detailChoiceGuige .main .right .second .fouth1 image {
+    width: 33rpx;
+    height: 30rpx;
+}
+
+.detailChoiceGuige .main .right .second .fouth1 text {
+    font-family: PingFangSC-Regular;
+    font-size: 25rpx;
+    color: #967800;
+    height: 30rpx;
+}
+
+.detailChoiceGuige .main .right .second .fifth1 {
+    height: 40rpx;
+    line-height: 25rpx;
+    text-align: left;
+}
+
+.detailChoiceGuige .main .right .second .fifth1 text {
+    font-family: PingFangSC-Regular;
+    font-size: 20rpx;
+    color: #000;
+}

@@ -1,0 +1,87 @@
+<view class="first_web" hidden="{{showWeb!=0}}">
+      <!-- <image src="http://h5.beerqi.com/imgs/question/img_start.jpg?{{MathRandomPic}}" mode="widthFix"></image> -->
+    <view bindtap="choiceWeb" data-showWebNum="1" class="starQuetion">
+    </view>
+</view>
+<view class="second_web" hidden="{{showWeb!=1}}">
+    <view  class="content">
+        <view class="title">
+            <image src="http://h5.beerqi.com/imgs/question/title/{{questionObj.title}}.png?{{MathRandomPic}}" mode="widthFix"></image>
+        </view>
+        <view class="questionList" >
+            <view class="questionContent"  wx:for="{{questionObj.question}}" wx:for-index="index" wx:for-item="item" bindtap="choiceAnswerBtn" data-index="{{index}}" data-item="{{item}}" hidden="{{questionObj.title==11}}">
+                <view class="quan" hidden="{{questionObj.title==22}}">
+                    <view class="quan2" hidden="{{index!=choiceAnswerIndex}}">
+                    </view>
+                </view>
+                <view class="quan" hidden="{{questionObj.title!=22}}">
+                    <view class="quan2" hidden="{{!choiceAnswerIndex4[index]}}">
+                    </view>
+                </view>
+                <text >{{item.content}}</text>
+
+            </view>
+        </view>
+        <view class="questionList" >
+            <view class="questionContent"  wx:for="{{questionObj.question}}" wx:for-index="index" wx:for-item="item"  hidden="{{questionObj.title!=11}}">
+                <text >{{item.content}}</text>
+                <view class="hadquestion" hidden="{{questionObj.title!=11}}" >
+                    <text >{{item.smallcontent}}</text>
+                    <view class="hadquestionanswer">
+                        <view class="had_first" bindtap="choiceAnswerBtn1" data-index="{{index}}" data-item="1">
+                            <text>喜欢</text>
+                            <view class="quan" >
+                                <view class="quan2" hidden="{{1!=choiceAnswerIndex1[index]}}">
+                                </view>
+                            </view>
+                        </view>
+                        <view bindtap="choiceAnswerBtn1" data-index="{{index}}" data-item="2">
+                            <text>可以尝试</text>
+                            <view class="quan" >
+                                <view class="quan2" hidden="{{2!=choiceAnswerIndex1[index]}}">
+                                </view>
+                            </view>
+                        </view>
+                        <view bindtap="choiceAnswerBtn1" data-index="{{index}}" data-item="3">
+                            <text>不喜欢</text>
+                            <view class="quan" >
+                                <view class="quan2" hidden="{{3!=choiceAnswerIndex1[index]}}">
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    
+
+                </view>
+
+            </view>
+        </view>
+
+        <view class="bgImg">
+            <image  hidden="{{questionObj.title!=3}}" src="http://h5.beerqi.com/imgs/question/img_q3.png?{{MathRandomPic}}" mode="widthFix"></image>
+            <image hidden="{{questionObj.title!=6}}"  src="http://h5.beerqi.com/imgs/question/img_q6.png?{{MathRandomPic}}" mode="widthFix"></image>
+            <image hidden="{{questionObj.title!=7}}"   src="http://h5.beerqi.com/imgs/question/img_q7.png?{{MathRandomPic}}" mode="widthFix"></image>
+            <image class="image1" hidden="{{questionObj.title!=12}}"  src="http://h5.beerqi.com/imgs/question/img_q12.png?{{MathRandomPic}}" mode="widthFix"></image>
+            <image class="image2" hidden="{{questionObj.title!=17}}"  src="http://h5.beerqi.com/imgs/question/img_q17.png?{{MathRandomPic}}" mode="widthFix"></image>
+            <image class="image2"  hidden="{{questionObj.title!=19}}"  src="http://h5.beerqi.com/imgs/question/img_q19.png?{{MathRandomPic}}" mode="widthFix"></image>
+            <image class="image2"  hidden="{{questionObj.title!=20}}"  src="http://h5.beerqi.com/imgs/question/img_q20.png?{{MathRandomPic}}" mode="widthFix"></image>
+        </view>
+    </view>
+    <view bindtap="choiceQuestion" class="nextquestion">
+        <image src="http://h5.beerqi.com/imgs/question/btn_next.png?{{MathRandomPic}}" mode="widthFix"></image>
+    </view>
+</view>
+<view class="third_web" hidden="{{showWeb!=2}}">
+      <image src="http://h5.beerqi.com/imgs/question/img_rm.png?{{MathRandomPic}}" mode="widthFix" hidden="{{showLastWeb!=0}}"></image>
+      <image src="http://h5.beerqi.com/imgs/question/img_dr.png?{{MathRandomPic}}" mode="widthFix" hidden="{{showLastWeb!=1}}"></image>
+      <image src="http://h5.beerqi.com/imgs/question/img_lsj.png?{{MathRandomPic}}" mode="widthFix" hidden="{{showLastWeb!=2}}"></image>
+    <view class="dingyue" bindtap="goMy">
+      <image src="http://h5.beerqi.com/imgs/question/btn_subscriber.png?{{MathRandomPic}}" mode="widthFix" ></image>        
+    </view>
+   
+</view>
+<!-- 未登录提示弹框 -->
+<view class="popup popup1" wx-if="{{popupBol7}}">
+    <image src="http://h5.beerqi.com/imgs/popup/1.png" mode="widthFix" />
+    <view bindtap="closePopup1" class="close_popup"></view>
+</view>

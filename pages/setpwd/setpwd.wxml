@@ -1,0 +1,31 @@
+<scroll-view scroll-y="true"  class="bindphone">
+    <view class="first">
+        <view class="pic">
+            <open-data type="userAvatarUrl"></open-data>
+        </view>
+    </view>
+    <view class="bindphone_tel">
+        <label class="tel_label bind_label" >用户名</label> 
+        <input class="tel_input bindInput" name="rName" placeholder="请输入您的用户名" placeholder-class="tel_place" type="text" maxlength="18"  bindinput ="nameInput"></input>    
+    </view>
+
+    <view class="bindphone_tel">
+        <label class="tel_label bind_label" >密码</label> 
+        <input class="tel_input bindInput bindInput1" name="rName" placeholder="请输入6-18位密码" placeholder-class="tel_place" type="text" maxlength="18"   password="{{phonePwdBol}}" bindinput="pwdInput"></input>
+        <view class="eye eyeOpen" wx:if="{{phonePwdBol}}"  bindtap ="openPwd">
+             <image src="../../image/eyeopen.png" ></image>
+        </view> 
+        <view class="eye eyeColse" wx:if="{{!phonePwdBol}}" bindtap ="closePwd">
+             <image src="../../image/eyeclose.png"  ></image>
+        </view>   
+    </view>
+
+    <view class="submit"  bindtap="registerUser">
+        确  认
+    </view>
+
+</scroll-view>
+
+
+
+

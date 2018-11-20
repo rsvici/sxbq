@@ -1,0 +1,107 @@
+<view class="sharebox">
+   <!--  <view class="title">
+        <navigator url="../share/share" hover-class="none">
+           <image class="img1" src="http://h5.beerqi.com/imgs/beerqiBoxs/share1.jpg" alt="" mode="widthFix"></image>
+        </navigator>
+       
+    </view> -->
+    <!-- 没有盒子商品 -->
+    <view class="contentNo"   wx:if="{{(!hasBeerBox)&&isshow}}" bindtap="openNoBeerQiList">
+      <image class="img1" src="http://h5.beerqi.com/imgs/beerqiBoxs/u1.jpg" alt="" width="100%"></image>
+      <image class="img1" src="http://h5.beerqi.com/imgs/beerqiBoxs/u2.jpg" alt="" ></image>
+      <image class="img1" src="http://h5.beerqi.com/imgs/beerqiBoxs/u3.jpg" alt="" ></image>
+      <image class="img1" src="http://h5.beerqi.com/imgs/beerqiBoxs/u4.jpg" alt="" ></image>
+      <image class="img1" src="http://h5.beerqi.com/imgs/beerqiBoxs/u5.jpg" alt="" ></image>
+    </view>
+
+    <!-- 有盒子商品 -->
+    <view class="boxList"  wx:if="{{hasBeerBox&&isshow}}">
+        <scroll-view scroll-y="true" class="scoll-h" class="boxChildList" wx:for="{{expertList}}" wx:if="{{item.IsPayed&&(item.OrderStatus!=0)}}"  style="background-image:url(http://h5.beerqi.com/imgs/beerqiBoxs/{{item.sign}}.jpg)"
+        bindtap="openChildBox" data-index="{{index}}">
+            <!-- 商品图片 -->
+            <view class="signList" wx:if="{{item.isitemShow&&(item.sign!='c5')}}">
+                <view class="signItem {{item.sign=='c2'?'signItemc2':''}}" wx:for="{{item.Num}}" wx:for-item="litItem" wx:for-index="litIndex"
+                catchtap="openSendBox" data-litItem="{{litItem}}"
+                 data-index="{{index}}">
+                    <image class="imgsign" wx:if="{{item.sign!='c2'}}" src="http://h5.beerqi.com/imgs/beerqiBoxs/{{litItem.isCheck}}{{litItem.num}}.png" alt="" >
+                    </image> 
+
+                    <image class="imgsignc2"  wx:if="{{item.sign=='c2'}}" src="http://h5.beerqi.com/imgs/beerqiBoxs/{{litItem.isCheck}}{{litItem.num}}.png" alt="" >
+                    </image> 
+                    <!-- {{litIndex+1}} -->
+                </view>
+            </view>
+
+            <!-- 下标数字 -->
+            <view class="undexList"  wx:if="{{item.isitemShow&&(item.sign!='c5')}}">
+                <view class="undexItem" wx:for="{{item.Num}}" wx:for-item="litItem" wx:for-index="litIndex" wx:if="{{item.sign!='c2'}}"> 
+                    <view wx:if="{{(litIndex)%4}}"  class="undexItemline {{litItem.isCheck=='check'?'active':''}}"></view>
+                  
+                    <view class="undexItemNum  {{litItem.isCheck=='check'?'active':''}}">{{litIndex+1}}</view>
+                </view>
+            </view>
+            
+
+            <!-- 发货时间 -->
+            <view class="sendTime"  wx:if="{{item.sendTime&&(item.sign!='c5')}}" catchtap="openSendtest">
+                <view class="left">
+                    <image class="img1" src="http://h5.beerqi.com/imgs/beerqiBoxs/cup.png" alt="" ></image>
+                </view>
+                <view class="right">
+                    <view>{{item.RecvConsignee}}</view>
+                    <view>{{item.RecvTel}}</view>
+                    <view>{{item.RecvProvince}}{{item.RecvCity}}{{item.RecvAddress}}</view>
+                    <view wx:if="{{!beerqiSendGoodsShow}}">您的盒子已于</view>
+                    <view wx:if="{{beerqiSendGoodsShow}}">您的盒子将于</view>
+                    <view>{{sendTimeBox.year}}年{{sendTimeBox.mouth}}月{{sendTimeBox.day}}日</view>
+                    <view>星期一发货</view>
+                </view>
+            </view>
+        </scroll-view >
+
+
+        
+        <!-- 年卡显示 -->
+        <scroll-view scroll-y="true" class="scoll-h" class="boxChildList1" wx:for="{{expertListItem}}" >
+            <!-- 商品图片 -->
+            <view class="signList" wx:if="{{item.isitemShow}}">
+                <view class="signItem" wx:for="{{item.Num}}" wx:for-item="litItem" wx:for-index="litIndex"
+                catchtap="openSendBoxYear" data-litItem="{{litItem}}">
+                    <image class="imgsign" src="http://h5.beerqi.com/imgs/beerqiBoxs/{{litItem.isCheck}}{{litItem.num}}.png" alt="" >
+                    </image> 
+                </view>
+            </view>
+
+            <!-- 下标数字 -->
+            <view class="undexList"  wx:if="{{item.isitemShow}}">
+                <view class="undexItem" wx:for="{{item.Num}}" wx:for-item="litItem" wx:for-index="litIndex">
+                    <view wx:if="{{(litIndex)%4}}"  class="undexItemline {{litItem.isCheck=='check'?'active':''}}"></view>
+
+                    <view class="undexItemNum  {{litItem.isCheck=='check'?'active':''}}">{{litIndex+1}}</view>
+                </view>
+            </view>
+            
+            <!-- 发货时间 -->
+            <view class="sendTime sendTime1"  wx:if="{{item.sendTime}}" catchtap="openSendtest">
+                <view class="left">
+                    <image class="img1" src="http://h5.beerqi.com/imgs/beerqiBoxs/cup.png" alt="" ></image>
+                </view>
+                <view class="right">
+                    <view>{{item.RecvConsignee}}</view>
+                    <view>{{item.RecvTel}}</view>
+                    <view>{{item.RecvProvince}}{{item.RecvCity}}{{item.RecvAddress}}</view>
+                    <view wx:if="{{!beerqiSendGoodsShow}}">您的盒子已于</view>
+                    <view wx:if="{{beerqiSendGoodsShow}}">您的盒子将于</view>
+                    <view>{{sendTimeBox.year}}年{{sendTimeBox.mouth}}月{{sendTimeBox.day}}日</view>
+                    <view>星期一发货</view>
+                </view>
+            </view>
+        </scroll-view >
+    </view>
+</view>
+<!-- 没付款 -->
+<view  class="popup popup5" wx-if="{{popupBol15}}">
+    <image  src="http://h5.beerqi.com/imgs/popup/15.png"  mode="widthFix"/>
+    <view bindtap="closePopup" class="close_popup">
+    </view>
+</view>

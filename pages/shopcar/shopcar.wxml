@@ -1,0 +1,96 @@
+<!--pages/detail/detail.wxml-->
+<view class="shopcar">
+    <view class="list touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{carts}}" wx:key="">
+      
+        <view class="content">
+            <view class="choose" bindtap="selected" data-num="{{index}}" >
+                <view class="option" >
+                    <image wx-if="{{item.selected}}" src="https://h5.beerqi.com/imgs/logbold.png">
+                    </image>
+                    <image wx-if="{{!item.selected}}" src="https://h5.beerqi.com/imgs/log.png">
+                    </image>
+                </view>
+            </view>
+            <view class="imgages"  data-num="{{index}}" bindtap="selected">
+                <image class="navimg" src="{{item.Url}}"></image>
+            </view>
+            <view class="info">
+                <view class="title">{{item.ProductName}}</view>
+                <view class="specify">规格：{{item.ProDtl[0].AttrVal}}</view>
+                <view class="charge">￥<text>{{item.PriceSell}}.00</text></view>
+                <view class="buy-num">
+                <text class="sub" bindtap="subNum" data-num="{{index}}">-</text>
+                <text class="goodsNum">{{item.Quantity}}</text>
+                <text class="add" bindtap="addNum" data-num="{{index}}">+</text>
+                </view>
+            </view>
+        </view>
+        <view class="del" catchtap="del" data-index="{{index}}">
+            <image  src="https://h5.beerqi.com/imgs/del.png" />
+        </view>  
+     </view>
+     <view style="height:150rpx;" >
+    </view>
+</view>
+
+<!-- master会员 -->
+<view class="masterBox" id="masterBoxShopcar" wx:if="{{!isIphoneX}}">
+	<navigator url="../member/member" hover-class="none" wx-if="{{!masterBol}}">
+		<image src="https://h5.beerqi.com/imgs/joinMember.jpg" mode="widthFix"></image>
+    </navigator>
+    <image src="https://h5.beerqi.com/imgs/joinMember2.jpg" mode="widthFix" wx-if="{{masterBol}}"></image>
+    <view class="first">
+        <text>啤气Master会员专享价<text class="tz">{{masterPrice}}元</text></text>
+    </view>
+    <view class="second">
+        <text>开通会员仅需<text class="tz">9.9元</text>，此商品可省{{masterSales}}元</text>
+    </view>
+	
+</view>
+<!--底部-->
+<view class="footer">
+  <view class="allchoice choose" bindtap="selectedAll">
+    <view class="option" >
+        <image wx-if="{{selectAll}}" src="https://h5.beerqi.com/imgs/logbold.png">
+        </image>
+        <image wx-if="{{!selectAll}}" src="https://h5.beerqi.com/imgs/log.png">
+        </image>
+    </view>全选
+  </view>
+  <view class="gotonext" bindtap="countPrice">结算</view>
+  <view class="total">总计:
+        <text class="money" wx-if="{{masterBol}}">￥{{masterPrice}}</text>
+        <text class="money" wx-if="{{!masterBol}}">￥{{totalPrice}}</text>
+        <text class="other" wx-if="{{!isCanGoPay}}">满6瓶发货（不包括套装,大于550ML)</text>
+  </view>
+</view>
+
+
+<!-- 提示弹框无用户登陆 -->
+<view  class="popup popup1" wx-if="{{popupBol}}">
+    <image  src="http://h5.beerqi.com/imgs/popup/4.png"  mode="widthFix"/>
+    <view bindtap="closePopup" class="close_popup">
+    </view>
+</view>
+
+
+<!-- 提示弹框只可购买一件秒杀商品 -->
+<view  class="popup popup5" wx-if="{{popupBol5}}">
+    <image  src="http://h5.beerqi.com/imgs/popup/5.png"  mode="widthFix"/>
+    <view bindtap="closePopup" class="close_popup">
+    </view>
+</view>
+
+<!-- 提示弹框秒杀商品失效 -->
+<view  class="popup popup1" wx-if="{{popupBol9}}">
+    <image  src="http://h5.beerqi.com/imgs/popup/12.png"  mode="widthFix"/>
+    <view bindtap="closePopup" class="close_popup">
+    </view>
+</view>
+
+<!-- 提示弹框库存不足-->
+<view  class="popup popup1" wx-if="{{popupBol21}}">
+    <image  src="http://h5.beerqi.com/imgs/popup/21.png"  mode="widthFix"/>
+    <view bindtap="closePopup" class="close_popup">
+    </view>
+</view>
